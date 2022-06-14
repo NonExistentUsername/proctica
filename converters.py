@@ -12,7 +12,6 @@ class SimpleConverter(Converter):
     
     def __call__(self, data: str) -> list:
         return list(dict(Counter(data.split(' '))).items())
-
 class AlphabetConverter(Converter):
     def __init__(self, alphabet: list) -> None:
         super().__init__()
