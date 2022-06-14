@@ -8,6 +8,8 @@ converter = SimpleConverter()
 
 reader = SimpleReader()
 
+print(converter(reader()))
+
 a = calculator(converter(reader()))
 
 print(a)
