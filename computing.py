@@ -27,5 +27,5 @@ class CumulativeFrequencies(StatisticalDistribution):
         i=0
         for k, v in data:
             result.append((k, i))
-            i = + v
+            i += v
         return result
