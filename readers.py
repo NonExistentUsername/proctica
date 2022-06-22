@@ -15,4 +15,14 @@ class SimpleReader(Reader):
         super().__init__()
     
     def __call__(self) -> str:
-        return "-3 0 2 3 2 3 4 4 1 1 1 1 7 10 12"
+        return "abababbchskjsqqlkqkqkqszzz"
+
+class TXTReader(Reader):
+    def __init__(self, path_to_file) -> None:
+        super().__init__()
+        self._path_to_file = path_to_file
+    
+    def __call__(self) -> str:
+        with open(self._path_to_file, "r") as f:
+            return f.read()
+ 
