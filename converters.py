@@ -29,7 +29,7 @@ class AlphabetConverter(Converter):
         self.__alphabet = alphabet
     
     def __call__(self, data: str) -> list:
-        ppp = dict(Counter(data.split('')))
+        ppp = dict(Counter(split(data.lower())))
         result = {}
         for k in self.__alphabet:
             if k in ppp:
@@ -92,6 +92,30 @@ class BoostedConverter(Converter):
         for key in self.__alphabet:
             result.append((key, tmp_result[key]))
         return result
+
+class BooostedConverterPlus(Converter):
+    def __init__(self, alphabet: list[str]) -> None:
+        super().__init__()
+        if len(alphabet) == 0:
+            raise ValueError()
+        
+        self.__alphabet = []
+        tmp = set()
+        for key in alphabet:
+            if not key in tmp:
+                self.__alphabet.append(key)
+                tmp.add(key)
+
+        #TODO
+    
+    def __call__(self, data: str) -> list:
+        result = []
+        for key in self.__alphabet:
+            result.append((key, data.count(key)))
+
+        #POPRAVOCHKI
+        return result
+
 
 class BoostedConverter2(Converter):
     DELETED_SYMBOL = '~'

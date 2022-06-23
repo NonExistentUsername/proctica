@@ -13,16 +13,12 @@ class Reader:
     def __call__(self) -> str:
         pass
 
-class PDFReader(Reader):
-    def __call__(self) -> str:
-        return "huy"
-
 class SimpleReader(Reader):
     def __init__(self) -> None:
         super().__init__()
     
     def __call__(self) -> str:
-        return "abababbchskjsqqlkqkqkqszzz"
+        return "-3 0 1 1 1 1 2 2 3 3 4 4 7 10 12"
 
 class TXTReader(Reader):
     def __init__(self, path_to_file) -> None:
