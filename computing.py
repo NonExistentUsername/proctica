@@ -103,3 +103,13 @@ class DispersionR:
         else:
             result /= n
         return result
+
+class LazyComputation:
+    def __init__(self, method):
+        self.__method = method
+        self.__result = None
+    
+    def __call__(self, data: list, n: int):
+        if self.__result:
+            return self.__result
+        return self.__method(data, n)
