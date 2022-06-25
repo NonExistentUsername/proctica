@@ -74,6 +74,21 @@ class SelectiveStandardDeviation:
             dispersion = Dispersion()(data, n)
         return math.sqrt(dispersion)
 
+class DimensionOfSample:
+    def __call__(self, data: list, n: int) -> int:
+        xmax = data[0][0]
+        xmin = data[0][0]
+        for k, v in data:
+            xmax = max(xmax, k)
+            xmin = min(xmin, k)
+        return xmax - xmin
+
+class CorrelationCoefficient:
+    def __call__(self, data: list, n: int) -> float:
+        selective_average = SelectiveAverage()(data, n)
+        selective_standard_deviation = SelectiveStandardDeviation()(data, n)
+        return selective_standard_deviation / selective_average
+
 class SelectiveAverageR:
     def __init__(self, r: int = 1) -> None:
         self.__r = r
