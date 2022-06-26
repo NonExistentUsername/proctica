@@ -16,6 +16,9 @@ ResultForm = QtWidgets.QWidget()
 resUi = Ui_Form()
 resUi.setupUi(ResultForm)
 
+#change title 
+Practica.setWindowTitle("УжНУ Практика")
+ResultForm.setWindowTitle("УжНУ Практика, результат обчислювань")
 
 def showResultWindow():
     Practica.close()
