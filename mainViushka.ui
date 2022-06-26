@@ -192,6 +192,11 @@ border:1px solid white;</string>
     </item>
     <item>
      <property name="text">
+      <string>Англійська</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>російська</string>
      </property>
     </item>
