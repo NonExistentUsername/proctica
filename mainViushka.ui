@@ -67,6 +67,46 @@ border:1px solid white;</string>
       <string>Стат. розподіл відносних нак. частот</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Вибіркове середнє значення</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Дисперсія</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Середнє квадратичне відхилення</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Мода</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Медіана</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Коефіціент кореляції</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Розмах варіації</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Коефіціент варіації</string>
+     </property>
+    </item>
    </widget>
    <widget class="QComboBox" name="comboBox_2">
     <property name="geometry">
