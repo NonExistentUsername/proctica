@@ -436,7 +436,7 @@ border:1px solid white;</string>
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../../Загрузки/diploma.png</pixmap>
+      <pixmap>diploma.png</pixmap>
      </property>
     </widget>
    </widget>

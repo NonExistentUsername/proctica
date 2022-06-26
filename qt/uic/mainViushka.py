@@ -164,7 +164,7 @@ class Ui_Practica(object):
         self.label_6 = QtWidgets.QLabel(self.frame)
         self.label_6.setGeometry(QtCore.QRect(160, 30, 71, 61))
         self.label_6.setText("")
-        self.label_6.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\../../../Загрузки/diploma.png"))
+        self.label_6.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\diploma.png"))
         self.label_6.setObjectName("label_6")
         Practica.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Practica)
