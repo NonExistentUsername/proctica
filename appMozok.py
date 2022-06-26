@@ -28,7 +28,7 @@ def backToMain():
     ResultForm.close()
     Practica.show()
 
-ui.pushButton.clicked.connect(showResultWindow)
+ui.calculate.clicked.connect(showResultWindow)
 resUi.pushButton.clicked.connect(backToMain)
 
 sys.exit(app.exec_())
