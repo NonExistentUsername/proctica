@@ -183,7 +183,7 @@ border:1px solid white;</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
+     <string notr="true">color: #fff;
 background:#22222e;
 border:1px solid white;</string>
     </property>

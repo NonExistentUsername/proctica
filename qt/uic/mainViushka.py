@@ -68,7 +68,7 @@ class Ui_Practica(object):
         font.setPointSize(11)
         self.lang_combo.setFont(font)
         self.lang_combo.setAutoFillBackground(False)
-        self.lang_combo.setStyleSheet("color: white;\n"
+        self.lang_combo.setStyleSheet("color: #fff;\n"
 "background:#22222e;\n"
 "border:1px solid white;")
         self.lang_combo.setFrame(True)
@@ -159,7 +159,7 @@ class Ui_Practica(object):
         self.label_6 = QtWidgets.QLabel(self.frame)
         self.label_6.setGeometry(QtCore.QRect(160, 30, 71, 61))
         self.label_6.setText("")
-        self.label_6.setPixmap(QtGui.QPixmap("diploma.png"))
+        self.label_6.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\diploma.png"))
         self.label_6.setObjectName("label_6")
         Practica.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Practica)
