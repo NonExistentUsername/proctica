@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>200</width>
-    <height>306</height>
+    <width>280</width>
+    <height>350</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -20,6 +20,12 @@
   <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QLabel" name="label_2">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>100</height>
+      </size>
+     </property>
      <property name="styleSheet">
       <string notr="true">background-color: rgb(251, 91, 93);</string>
      </property>
@@ -47,7 +53,7 @@
     <widget class="QLabel" name="label">
      <property name="font">
       <font>
-       <pointsize>11</pointsize>
+       <pointsize>15</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -62,7 +68,7 @@
     <widget class="QLabel" name="input_one">
      <property name="font">
       <font>
-       <pointsize>11</pointsize>
+       <pointsize>15</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -77,7 +83,7 @@
     <widget class="QLabel" name="input_two">
      <property name="font">
       <font>
-       <pointsize>11</pointsize>
+       <pointsize>15</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -108,12 +114,12 @@
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>20</height>
+         <height>25</height>
         </size>
        </property>
        <property name="font">
         <font>
-         <pointsize>11</pointsize>
+         <pointsize>18</pointsize>
          <weight>50</weight>
          <bold>false</bold>
         </font>
