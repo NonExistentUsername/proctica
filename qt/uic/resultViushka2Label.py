@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'd:\Універ\Практика\proctica\resultViushka2.ui'
+# Form implementation generated from reading ui file 'd:\Універ\Практика\proctica\resultViushka2Label.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -42,6 +42,13 @@ class Ui_Form(object):
         self.label_3.setStyleSheet("color:white")
         self.label_3.setObjectName("label_3")
         self.verticalLayout_2.addWidget(self.label_3)
+        self.label_4 = QtWidgets.QLabel(Form)
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.label_4.setFont(font)
+        self.label_4.setStyleSheet("color:white")
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout_2.addWidget(self.label_4)
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setObjectName("verticalLayout")
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
@@ -69,4 +76,5 @@ class Ui_Form(object):
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "Розрахунки:"))
         self.label_3.setText(_translate("Form", "<html><head/><body><p><br/></p></body></html>"))
+        self.label_4.setText(_translate("Form", "<html><head/><body><p><br/></p></body></html>"))
         self.pushButton.setText(_translate("Form", "На головну"))
