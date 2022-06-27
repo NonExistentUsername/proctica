@@ -23,7 +23,7 @@ class Ui_Form(object):
         self.label_2.setStyleSheet("background-color: rgb(251, 91, 93);")
         self.label_2.setText("")
         self.label_2.setTextFormat(QtCore.Qt.RichText)
-        self.label_2.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\checklist.png"))
+        self.label_2.setPixmap(QtGui.QPixmap("checklist.png"))
         self.label_2.setScaledContents(False)
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
