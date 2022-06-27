@@ -36,6 +36,7 @@ class Ui_Form(object):
         self.label.setObjectName("label")
         self.verticalLayout_2.addWidget(self.label)
         self.lineEdit = QtWidgets.QLineEdit(Form)
+        self.lineEdit.setStyleSheet("border:1px solid white;")
         self.lineEdit.setObjectName("lineEdit")
         self.verticalLayout_2.addWidget(self.lineEdit)
         self.verticalLayout = QtWidgets.QVBoxLayout()
