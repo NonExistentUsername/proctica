@@ -2,6 +2,7 @@ import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QModelIndex, Qt
 from PyQt5.QtWidgets import QFileDialog, QMessageBox, QHeaderView
+from PyQt5.QtGui import QIcon
 from qt.uic.mainViushka import Ui_Practica
 from qt.uic import resultViushka
 from qt.uic import resultViushka2
@@ -11,6 +12,8 @@ from computing_managers import *
 app = QtWidgets.QApplication(sys.argv)
 Practica = QtWidgets.QMainWindow()
 ui = Ui_Practica()
+Practica.setWindowIcon(QIcon("grade.png"))
+
 ui.setupUi(Practica)
 Practica.show()
 
@@ -23,6 +26,7 @@ ResultOneDimensionTableUI.setupUi(ResultOneDimensionTableForm)
 SimpleVariableResultForm = QtWidgets.QWidget()
 SimpleVariableResultUI = resultViushka2.Ui_Form()
 SimpleVariableResultUI.setupUi(SimpleVariableResultForm)
+
 
 #change title 
 Practica.setWindowTitle("УжНУ Практика")
