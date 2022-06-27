@@ -2,8 +2,6 @@ from abc import abstractmethod
 from collections import Counter
 import re
 
-from pyparsing import restOfLine
-
 def split(word):
     return [char for char in word]
 
