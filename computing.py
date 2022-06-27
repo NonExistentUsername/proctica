@@ -154,6 +154,33 @@ class CovariationCoefficient:
     def name(self) -> str:
         return "Коефіцієнт варіації"
 
+
+# [('a', ('b', 1), ('c', 2))]
+class TwoDimensionsComputing:
+    def __init__(self, method) -> None:
+        self.__method = method
+
+    def __call__(self, data: list):
+        data1 = {}
+        data2 = {}
+        n = 0
+
+        for k1, v1 in data:
+            sum1 = 0
+            for k2, v in v1:
+                if not k2 in data2:
+                    data2[k2] = 0
+                data2[k2] += v
+                sum1 += v
+                n += v
+            data1[k1] = sum1
+        
+        result_data_1 = [(k, v) for k, v in data1.items()]
+        result_data_2 = [(k, v) for k, v in data2.items()]
+
+        return [self.__method(result_data_1, n), self.__method(result_data_2, n)]
+
+
 class LazyComputation:
     def __init__(self, method):
         self.__method = method

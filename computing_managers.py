@@ -17,20 +17,20 @@ def create_lazy_reader(file_path: str):
 
 class ComputingManager:
     def __init__(self) -> None:
-        self.__id_to_method = {
-            0: StatisticalFrequencyDistribution(),
-            1: RelativeFrequencies(),
-            2: CumulativeFrequencies(),
-            3: RelativeAccumulatedFrequencies(),
-            4: SelectiveAverage(),
-            5: Dispersion(),
-            6: SelectiveStandardDeviation(),
-            7: FashionOfSample(),
-            8: MedianOfSample(),
-            9: None,
-            10: DimensionOfSample(),
-            11: CovariationCoefficient(),
-        }
+        self.__id_to_method = [
+            StatisticalFrequencyDistribution(),
+            RelativeFrequencies(),
+            CumulativeFrequencies(),
+            RelativeAccumulatedFrequencies(),
+            SelectiveAverage(),
+            Dispersion(),
+            SelectiveStandardDeviation(),
+            FashionOfSample(),
+            MedianOfSample(),
+            None,
+            DimensionOfSample(),
+            CovariationCoefficient(),
+        ]
     @property
     def methods(self) -> dict:
         return self.__id_to_method
@@ -45,21 +45,75 @@ class ConvertersManager:
             lambda alphabet: WordslenConverter(alphabet),
             lambda alphabet: LengthOfSentencesConverter(alphabet),
         ]
-        self.__id_to_alphabet_type = {
-            0: lambda: ID_TO_ALPHABET,
-            1: lambda: ID_TO_VOWELS_LETTERS,
-            2: lambda: ID_TO_CONSONANT_LETTERS,
-            3: lambda: ID_TO_ALPHABET,
-            4: lambda: ID_TO_ALPHABET,
-            5: lambda: ID_TO_ALPHABET,
-        }
+        self.__id_to_alphabet_type = [
+            lambda: ID_TO_ALPHABET,
+            lambda: ID_TO_VOWELS_LETTERS,
+            lambda: ID_TO_CONSONANT_LETTERS,
+            lambda: ID_TO_ALPHABET,
+            lambda: ID_TO_ALPHABET,
+            lambda: ID_TO_ALPHABET,
+        ]
+        self.__id_to_two_dimensin_converter = [
+            [
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                None,
+                None,
+                None,
+            ],
+            [
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                None,
+                None,
+                None,
+            ],
+            [
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                None,
+                None,
+                None,
+            ],
+            [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+            [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+            [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+        ]
 
     @property
-    def one_demension_converters(self) -> dict:
+    def one_demension_converters(self) -> list:
         return self.__id_to_converter
+
+    @property
+    def two_demension_converters(self) -> list:
+        return self.__id_to_two_dimensin_converter
     
     @property
-    def alphabets(self) -> dict:
+    def alphabets(self) -> list:
         return self.__id_to_alphabet_type
 
 class AppController:
@@ -69,11 +123,16 @@ class AppController:
         self.__computing_manager = ComputingManager()
 
     def __get_converter(self, alphabet_id, converter_id1, converter_id2):
-        alphabet = self.__converters_manager.alphabets[converter_id1]()[alphabet_id]
-        return self.__converters_manager.one_demension_converters[converter_id1](alphabet)
+        if converter_id2 == 0:
+            alphabet = self.__converters_manager.alphabets[converter_id1]()[alphabet_id]
+            return self.__converters_manager.one_demension_converters[converter_id1](alphabet)
+        else:
+            converter_id2 -= 1
+            alphabet1 = self.__converters_manager.alphabets[converter_id1]()[alphabet_id]
+            alphabet2 = self.__converters_manager.alphabets[converter_id2]()[alphabet_id]
+            return self.__converters_manager.two_demension_converters[converter_id1][converter_id2](alphabet1, alphabet2)
 
     def __call__(self, alphabet_id, converter_id1, converter_id2, method_id) -> None:
-        print(alphabet_id, converter_id1, converter_id2, method_id)
         if converter_id2 == 0:
             converter = self.__get_converter(alphabet_id, converter_id1, converter_id2)
             data = converter(self.__reader())
@@ -85,4 +144,11 @@ class AppController:
                 return converter.decrypt(result)
             return (self.__computing_manager.methods[method_id].name, result)
         else:
-            pass
+            converter = self.__get_converter(alphabet_id, converter_id1, converter_id2)
+            data = converter(self.__reader())
+            if method_id == 0:
+                return converter.decrypt_default(data)
+            result = TwoDimensionsComputing(self.__computing_manager.methods[method_id])(data)
+            if isinstance(result[0], tuple) or isinstance(result[0], list):
+                return converter.decrypt(result)
+            return ((self.__computing_manager.methods[method_id].name + ' (x)', result[0]), (self.__computing_manager.methods[method_id].name + ' (y)', result[1]))

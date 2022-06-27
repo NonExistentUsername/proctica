@@ -2,6 +2,8 @@ from abc import abstractmethod
 from collections import Counter
 import re
 
+from pyparsing import restOfLine
+
 def split(word):
     return [char for char in word]
 
@@ -99,6 +101,71 @@ class CountConverter(Converter):
         for k, v in data:
             result.append((self.__id_to_alphabet[k], v))
         return result
+
+
+class TwoDimensionsConverter(Converter):
+    def __init__(self, alphabet1: list[str], alphabet2: list[str]) -> None:
+        super().__init__()
+        if len(alphabet1) == 0:
+            raise ValueError()
+        if len(alphabet2) == 0:
+            raise ValueError()
+        
+        self.__alphabet1 = []
+        self.__alphabet_to_id1 = {}
+        self.__id_to_alphabet1 = {}
+        curid = 1
+        tmp = set()
+        for key in alphabet1:
+            if not key in tmp:
+                self.__alphabet1.append(key)
+                self.__alphabet_to_id1[key] = curid
+                self.__id_to_alphabet1[curid] = key
+                curid += 1
+                tmp.add(key)
+
+        self.__alphabet2 = []
+        self.__alphabet_to_id2 = {}
+        self.__id_to_alphabet2 = {}
+        curid = 1
+        tmp = set()
+        for key in alphabet2:
+            if not key in tmp:
+                self.__alphabet2.append(key)
+                self.__alphabet_to_id2[key] = curid
+                self.__id_to_alphabet2[curid] = key
+                curid += 1
+                tmp.add(key)
+    
+    def __call__(self, data: str) -> list:
+        data = data.lower()
+        result = []
+        for i in range(len(self.__alphabet1)):
+            temp = []
+            for j in range(len(self.__alphabet2)):
+                temp.append((self.__alphabet_to_id2[self.__alphabet2[j]], data.count(self.__alphabet1[i] + self.__alphabet2[j])))
+            result.append((self.__alphabet_to_id1[self.__alphabet1[i]], temp))
+        return result
+
+    def decrypt_default(self, data: list) -> list:
+        result = []
+        for k, v in data:
+            tmp = []
+            for k2, v2 in v:
+                tmp.append((self.__id_to_alphabet2[k2], v2))
+            result.append((self.__id_to_alphabet1[k], tmp))
+        return result
+
+
+    def decrypt(self, data: list) -> list:
+        data1, data2 = data
+        new_data1 = []
+        new_data2 = []
+        for k, v in data1:
+            new_data1.append((self.__id_to_alphabet1[k], v))
+        for k, v in data2:
+            new_data2.append((self.__id_to_alphabet2[k], v))
+        return [new_data1, new_data2]
 
 class WordslenConverter(Converter):
     def __init__(self, alphabet) -> None:
