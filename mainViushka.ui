@@ -158,6 +158,11 @@ border:1px solid white;</string>
       <string>Довжина речень</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Буквосполучення</string>
+     </property>
+    </item>
    </widget>
    <widget class="QComboBox" name="lang_combo">
     <property name="geometry">
@@ -380,6 +385,11 @@ border:1px solid white;</string>
     <item>
      <property name="text">
       <string>Довжина речень</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Буквосполучення</string>
      </property>
     </item>
    </widget>
