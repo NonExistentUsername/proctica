@@ -1,7 +1,7 @@
 import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QModelIndex, Qt
-from PyQt5.QtWidgets import QFileDialog, QMessageBox
+from PyQt5.QtWidgets import QFileDialog, QMessageBox, QHeaderView
 from qt.uic.mainViushka import Ui_Practica
 from qt.uic import resultViushka
 from qt.uic import resultViushka2
@@ -60,6 +60,8 @@ class OneDimensionTableModel(QtCore.QAbstractTableModel):
 
 def OneDimensionResultView(data):
     model = OneDimensionTableModel(data)
+    ResultOneDimensionTableUI.tableView.horizontalHeader().setResizeMode(QHeaderView.Stretch)
+
     ResultOneDimensionTableUI.tableView.setModel(model)
     ResultOneDimensionTableForm.show()
 
