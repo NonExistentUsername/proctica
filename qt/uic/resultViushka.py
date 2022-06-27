@@ -24,14 +24,6 @@ class Ui_Form(object):
         self.label.setFont(font)
         self.label.setStyleSheet("color:white;")
         self.label.setObjectName("label")
-        self.tableWidget = QtWidgets.QTableWidget(Form)
-        self.tableWidget.setGeometry(QtCore.QRect(20, 40, 361, 192))
-        self.tableWidget.setStyleSheet("border-color: rgb(255, 255, 255);\n"
-"color:white;")
-        self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
-        self.tableWidget.setObjectName("tableWidget")
-        self.tableWidget.setColumnCount(0)
-        self.tableWidget.setRowCount(0)
         self.pushButton = QtWidgets.QPushButton(Form)
         self.pushButton.setGeometry(QtCore.QRect(290, 260, 101, 21))
         font = QtGui.QFont()
@@ -44,6 +36,12 @@ class Ui_Form(object):
 "border:1px solid white;\n"
 "border-radius:30;")
         self.pushButton.setObjectName("pushButton")
+        self.tableView = QtWidgets.QTableView(Form)
+        self.tableView.setGeometry(QtCore.QRect(10, 40, 381, 192))
+        self.tableView.setStyleSheet("border-color: rgb(255, 255, 255);\n"
+"color:white;")
+        self.tableView.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.tableView.setObjectName("tableView")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
