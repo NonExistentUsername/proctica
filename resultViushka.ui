@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>401</width>
     <height>300</height>
    </rect>
   </property>
@@ -70,15 +70,21 @@ border-radius:30;</string>
      <x>10</x>
      <y>40</y>
      <width>381</width>
-     <height>192</height>
+     <height>191</height>
     </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>150</width>
+     <height>150</height>
+    </size>
    </property>
    <property name="styleSheet">
     <string notr="true">border-color: rgb(255, 255, 255);
 color:white;</string>
    </property>
    <property name="sizeAdjustPolicy">
-    <enum>QAbstractScrollArea::AdjustToContents</enum>
+    <enum>QAbstractScrollArea::AdjustIgnored</enum>
    </property>
   </widget>
  </widget>

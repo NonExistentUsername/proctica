@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(400, 300)
+        Form.resize(401, 300)
         Form.setStyleSheet("background:#22222e;\n"
 "")
         self.label = QtWidgets.QLabel(Form)
@@ -37,10 +37,11 @@ class Ui_Form(object):
 "border-radius:30;")
         self.pushButton.setObjectName("pushButton")
         self.tableView = QtWidgets.QTableView(Form)
-        self.tableView.setGeometry(QtCore.QRect(10, 40, 381, 192))
+        self.tableView.setGeometry(QtCore.QRect(10, 40, 381, 191))
+        self.tableView.setMinimumSize(QtCore.QSize(150, 150))
         self.tableView.setStyleSheet("border-color: rgb(255, 255, 255);\n"
 "color:white;")
-        self.tableView.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
+        self.tableView.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
         self.tableView.setObjectName("tableView")
 
         self.retranslateUi(Form)
