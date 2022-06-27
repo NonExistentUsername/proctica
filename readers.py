@@ -13,13 +13,6 @@ class Reader:
     def __call__(self) -> str:
         pass
 
-class SimpleReader(Reader):
-    def __init__(self) -> None:
-        super().__init__()
-    
-    def __call__(self) -> str:
-        return "-3 0 1 1 1 1 2 2 3 3 4 4 7 10 12"
-
 class TXTReader(Reader):
     def __init__(self, path_to_file) -> None:
         super().__init__()
@@ -63,3 +56,15 @@ class DOCXReader(Reader):
 
     def __call__(self) -> str:
         return docx2txt.process(self._path_to_file)
+
+class LazyReader(Reader):
+    def __init__(self, reader) -> None:
+        super().__init__()
+        self.__reader = reader
+        self.__result = None
+
+    def __call__(self) -> str:
+        if self.__result:
+            return self.__result
+        self.__result = self.__reader()
+        return self.__result

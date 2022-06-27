@@ -1,5 +1,6 @@
 from abc import abstractmethod
 from collections import Counter
+import re
 
 def split(word):
     return [char for char in word]
@@ -100,9 +101,44 @@ class CountConverter(Converter):
         return result
 
 class WordslenConverter(Converter):
-    def __init__(self) -> None:
+    def __init__(self, alphabet) -> None:
         super().__init__()
+        self.__alphabet = alphabet
     
     def __call__(self, data: str) -> list:
-        pass
+        w = dict(Counter(map(lambda x: len(x), re.split(" |\,|\!|\?|\.|\...|\n|\t|:", data))))
+        result = []
+        for k, v in w.items():
+            result.append((k, v))
+        result.sort(key = lambda x: x[0])
+        return result
     
+    def decrypt(self, data: list) -> list:
+        return data
+
+class LengthOfSentencesConverter(Converter):
+    def __init__(self, alphabet) -> None:
+        super().__init__()
+        self.__alphabet = alphabet
+    
+    def __call__(self, data: str) -> list:
+        w = dict(Counter(map(lambda x: len(x), re.split("\! |\? |\. |\... ", data))))
+        result = []
+        for k, v in w.items():
+            result.append((k, v))
+        result.sort(key = lambda x: x[0])
+        return result
+    
+    def decrypt(self, data: list) -> list:
+        return data
+class LazyConverter(Converter):
+    def __init__(self, converter) -> None:
+        super().__init__()
+        self.__converter = converter
+        self.__result = None
+    
+    def __call__(self, data: str) -> list:
+        if self.__result:
+            return self.__result
+        self.__result = self.__converter(data)
+        return self.__result
