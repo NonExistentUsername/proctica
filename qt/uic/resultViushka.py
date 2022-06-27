@@ -14,12 +14,13 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
-        Form.resize(400, 292)
+        Form.resize(411, 320)
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Form.sizePolicy().hasHeightForWidth())
         Form.setSizePolicy(sizePolicy)
+        Form.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         Form.setStyleSheet("background:#22222e;\n"
 "")
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
