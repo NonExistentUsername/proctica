@@ -26,6 +26,9 @@ class Ui_Form(object):
         self.label.setObjectName("label")
         self.tableWidget = QtWidgets.QTableWidget(Form)
         self.tableWidget.setGeometry(QtCore.QRect(20, 40, 361, 192))
+        self.tableWidget.setStyleSheet("border-color: rgb(255, 255, 255);\n"
+"color:white;")
+        self.tableWidget.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(0)
         self.tableWidget.setRowCount(0)
