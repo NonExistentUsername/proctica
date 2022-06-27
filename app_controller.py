@@ -50,8 +50,8 @@ class ConvertersManager:
             lambda alphabet: AlphabetConverter(alphabet),
             lambda alphabet: AlphabetConverter(alphabet),
             lambda alphabet: AlphabetConverter(alphabet),
-            lambda alphabet: AlphabetConverter(alphabet),
-            lambda alphabet: WordslenConverter(alphabet),
+            lambda alphabet: CountConverter(alphabet),
+            lambda alphabet: CountConverter(alphabet),
             lambda alphabet: LengthOfSentencesConverter(alphabet),
         ]
         self.__id_to_alphabet_type = [

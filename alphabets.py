@@ -15,8 +15,14 @@ RUS_PRIHOLOSNI = ['б','в','г','д','ж','з','й','к','л','м','н','п','�
 RUS_HOLOSNI = ['а', 'о', 'у', 'и', 'ы','э']
 ENG_PRIHOLOSNI = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'z']
 ENG_HOLOSNI = ['a', 'e', 'i', 'o', 'u', 'y']
-RUM_HOLOSNI = ['a', 'ă', 'â','e', 'i', 'o', 'u', 'î']
+
+CZECH_HOLOSNI = ['a', 'á', 'e', 'é', 'ě', 'i', 'o', 'ó', 'u', 'ú', 'ů', 'y', 'ý']
+CZECH_PRIHOLOSNI = ['b', 'c', 'č', 'd', 'ď', 'f', 'g', 'h', 'ch', 'j', 'k', 'l', 'm', 'n', 'ň', 'p', 'q', 'r', 'ř', 's', 'š', 't', 'ť', 'v', 'w', 'x', 'z', 'ž']
+
 RUM_PRIHOLOSNI = ['b', 'c', 'd', 'f', 'g', 'h',  'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 'ș', 't', 'ț', 'v', 'w', 'x', 'y', 'z']
+RUM_HOLOSNI = ['a', 'ă', 'â','e', 'i', 'o', 'u', 'î']
+POLEN_PRIHOLOSNI = ['b', 'c', 'ć', 'ch', 'd', 'f', 'g', 'j', 'k', 'l', 'ł', 'm', 'n', 'ń', 'p', 'r', 's', 'ś', 'sz', 't', 'w', 'z', 'cz', 'dz', 'ź', 'dź', 'ż', 'dż']
+POLEN_HOLOSNI = ['a', 'ą', 'e', 'ę', 'i', 'o', 'ó', 'u', 'y']
 
 ID_TO_ALPHABET = [
     UKRAIN_ALPHABET,
@@ -36,10 +42,10 @@ ID_TO_CONSONANT_LETTERS = [
     RUS_PRIHOLOSNI,
     None,
     None,
-    None,
+    CZECH_PRIHOLOSNI,
     None,
     RUM_PRIHOLOSNI,
-    None,
+    POLEN_PRIHOLOSNI,
 ]
 
 ID_TO_VOWELS_LETTERS = [
@@ -48,8 +54,8 @@ ID_TO_VOWELS_LETTERS = [
     RUS_HOLOSNI,
     None,
     None,
-    None,
+    CZECH_HOLOSNI,
     None,
     RUM_HOLOSNI,
-    None,
+    POLEN_HOLOSNI,
 ]
