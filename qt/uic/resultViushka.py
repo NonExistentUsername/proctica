@@ -38,10 +38,16 @@ class Ui_Form(object):
         self.pushButton.setObjectName("pushButton")
         self.tableView = QtWidgets.QTableView(Form)
         self.tableView.setGeometry(QtCore.QRect(10, 40, 381, 191))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Preferred)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.tableView.sizePolicy().hasHeightForWidth())
+        self.tableView.setSizePolicy(sizePolicy)
         self.tableView.setMinimumSize(QtCore.QSize(150, 150))
         self.tableView.setStyleSheet("border-color: rgb(255, 255, 255);\n"
-"color:white;")
-        self.tableView.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustIgnored)
+"color:white;\n"
+"border:1px solid white;")
+        self.tableView.setSizeAdjustPolicy(QtWidgets.QAbstractScrollArea.AdjustToContents)
         self.tableView.setObjectName("tableView")
 
         self.retranslateUi(Form)

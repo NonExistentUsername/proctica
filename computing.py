@@ -1,8 +1,6 @@
 from abc import abstractclassmethod
 import math
 
-from sympy import N
-
 class StatisticalDistribution:
     @abstractclassmethod
     def __call__(self, data: list, n: int) -> list:
