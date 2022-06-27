@@ -1,23 +1,32 @@
 from abc import abstractclassmethod
 import math
 
+from sympy import N
+
 class StatisticalDistribution:
     @abstractclassmethod
-    def __call__(self, data: list, n: int) -> dict:
+    def __call__(self, data: list, n: int) -> list:
         pass
+
+class StatisticalFrequencyDistribution(StatisticalDistribution):
+    def __init__(self) -> None:
+        super().__init__()
+
+    def __call__(self, data: list, n: int) -> list:
+        return data
 
 class RelativeFrequencies(StatisticalDistribution):
     def __init__(self) -> None:
         super().__init__()
 
-    def __call__(self, data: list, n: int) -> dict:
+    def __call__(self, data: list, n: int) -> list:
         return [(k, v / n) for k, v in data]
 
 class CumulativeFrequencies(StatisticalDistribution):
     def __init__(self) -> None:
         super().__init__()
     
-    def __call__(self, data: list, n: int) -> dict:
+    def __call__(self, data: list, n: int) -> list:
         result = []
         i = 0
         for k, v in data:
@@ -29,7 +38,7 @@ class RelativeAccumulatedFrequencies(StatisticalDistribution):
     def __init__(self) -> None:
         super().__init__()
 
-    def __call__(self, data: list, n: int) -> dict:
+    def __call__(self, data: list, n: int) -> list:
         result = []
         i = 0
         for k, v in data:
@@ -44,6 +53,10 @@ class SelectiveAverage:
         for k, v in data:
             result += k * v
         return result / n
+    
+    @property
+    def name(self) -> str:
+        return "Вибіркове середнє"
 
 class Dispersion:
     def __init__(self, selective_average_calculator = None) -> None:
@@ -51,7 +64,7 @@ class Dispersion:
 
     def __call__(self, data: list, n: int) -> float:
         if self.__selective_average_calculator:
-            selective_average = self.__selective_average_calculator
+            selective_average = self.__selective_average_calculator(data, n)
         else:
             selective_average = SelectiveAverage()(data, n)
         result = 0
@@ -62,6 +75,10 @@ class Dispersion:
         else:
             result /= n
         return result
+
+    @property
+    def name(self) -> str:
+        return "Дисперсія"
 
 class SelectiveStandardDeviation:
     def __init__(self, dispersion_calculator = None) -> None:
@@ -74,6 +91,48 @@ class SelectiveStandardDeviation:
             dispersion = Dispersion()(data, n)
         return math.sqrt(dispersion)
 
+    @property
+    def name(self) -> str:
+        return "Вибіркове стандартне відхилення"
+
+class FashionOfSample:
+    def __call__(self, data: list, n: int) -> int:
+        result = None
+        mx = -1
+        for k, v in data:
+            if v > mx:
+                mx = v
+                result = k
+        return [(result, mx)]
+
+    @property
+    def name(self) -> str:
+        return "Мода"
+class MedianOfSample:
+    def __call__(self, data: list, n: int) -> float:
+        l = n // 2
+        sum = 0
+        pos = None
+        for i in range(len(data)):
+            k, v = data[i]
+
+            sum += v
+            if sum >= l:
+                pos = i
+                break
+        
+        if n > 0 and n % 2 == 1:
+            return data[pos][0]
+        else:
+            if sum > l:
+                return data[pos][0]
+            else:
+                return (data[pos][0] + data[pos + 1][0]) / 2
+
+    @property
+    def name(self) -> str:
+        return "Медіана"
+
 class DimensionOfSample:
     def __call__(self, data: list, n: int) -> int:
         xmax = data[0][0]
@@ -83,41 +142,19 @@ class DimensionOfSample:
             xmin = min(xmin, k)
         return xmax - xmin
 
-class CorrelationCoefficient:
+    @property
+    def name(self) -> str:
+        return "Розмах"
+
+class CovariationCoefficient:
     def __call__(self, data: list, n: int) -> float:
         selective_average = SelectiveAverage()(data, n)
         selective_standard_deviation = SelectiveStandardDeviation()(data, n)
         return selective_standard_deviation / selective_average
 
-class SelectiveAverageR:
-    def __init__(self, r: int = 1) -> None:
-        self.__r = r
-    
-    def __call__(self, data: list, n: int) -> float:
-        data.sort(key = lambda a: a[0])
-        result = 0
-        for k, v in data:
-            result += (k**self.__r) * v
-        return result / n
-
-class DispersionR:
-    def __init__(self, r: int = 1, selective_average_calculator = None) -> None:
-        self.__r = r
-        self.__selective_average_calculator = selective_average_calculator
-    
-    def __call__(self, data: list, n: int) -> float:
-        if self.__selective_average_calculator:
-            selective_average = self.__selective_average_calculator
-        else:
-            selective_average = SelectiveAverage()(data, n)
-        result = 0
-        for k, v in data:
-            result += ((k - selective_average)**self.__r)*v
-        if n <= 30:
-            result /= n - 1
-        else:
-            result /= n
-        return result
+    @property
+    def name(self) -> str:
+        return "Коефіцієнт варіації"
 
 class LazyComputation:
     def __init__(self, method):
@@ -127,4 +164,5 @@ class LazyComputation:
     def __call__(self, data: list, n: int):
         if self.__result:
             return self.__result
-        return self.__method(data, n)
+        self.__result = self.__method(data, n)
+        return self.__result
