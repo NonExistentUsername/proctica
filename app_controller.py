@@ -1,8 +1,9 @@
+from multiprocessing.sharedctypes import Value
 from converters import *
 from readers import *
 from computing import *
 from alphabets import *
-from PyQt5.QtWidgets import QFileDialog
+from PyQt5.QtWidgets import QFileDialog, QInputDialog
 import re
 
 def create_reader(file_path: str):
@@ -16,12 +17,14 @@ def create_reader(file_path: str):
 def create_lazy_reader(file_path: str):
     return LazyReader(create_reader(file_path))
 
-def read_alphabet(parent = None):
-    options = QFileDialog.Options()
-    options |= QFileDialog.DontUseNativeDialog
-    fileName, _ = QFileDialog.getOpenFileName(parent ,"QFileDialog.getOpenFileName()", "","All Files (*);;", options=options)
-    
-    return re.split(",| |\n|\t", create_reader(fileName)())
+def read_alphabet(parent, msg):
+    text, ok = QInputDialog.getText(parent, 'Ввід даних', msg)
+
+    if ok:
+        alphabet = re.split(",| |\n|\t", text)
+    else:
+        raise ValueError()
+    return alphabet
 
 class ComputingManager:
     def __init__(self) -> None:
@@ -39,9 +42,27 @@ class ComputingManager:
             DimensionOfSample(),
             CovariationCoefficient(),
         ]
+        self.__id_to_two_dimension_method = [
+            lambda data: StatisticalFrequencyDistribution()(data, 0),
+            TwoDimensionsComputing(RelativeFrequencies()),
+            TwoDimensionsComputing(CumulativeFrequencies()),
+            TwoDimensionsComputing(RelativeAccumulatedFrequencies()),
+            TwoDimensionsComputing(SelectiveAverage()),
+            TwoDimensionsComputing(Dispersion()),
+            TwoDimensionsComputing(SelectiveStandardDeviation()),
+            TwoDimensionsComputing(FashionOfSample()),
+            TwoDimensionsComputing(MedianOfSample()),
+            CorrelationCoefficient(),
+            TwoDimensionsComputing(DimensionOfSample()),
+            TwoDimensionsComputing(CovariationCoefficient()),
+        ]
     @property
-    def methods(self) -> dict:
+    def methods(self) -> list:
         return self.__id_to_method
+    
+    @property
+    def two_dimension_methods(self) -> list:
+        return self.__id_to_two_dimension_method
 
 class ConvertersManager:
     def __init__(self, parent = None) -> None:
@@ -51,24 +72,25 @@ class ConvertersManager:
             lambda alphabet: AlphabetConverter(alphabet),
             lambda alphabet: AlphabetConverter(alphabet),
             lambda alphabet: CountConverter(alphabet),
-            lambda alphabet: CountConverter(alphabet),
+            lambda alphabet: WordslenConverter(alphabet),
             lambda alphabet: LengthOfSentencesConverter(alphabet),
+            lambda alphabet: CountConverter(alphabet),
         ]
         self.__id_to_alphabet_type = [
-            lambda: ID_TO_ALPHABET,
-            lambda: ID_TO_VOWELS_LETTERS,
-            lambda: ID_TO_CONSONANT_LETTERS,
-            lambda: read_alphabet(self.__parent),
-            lambda: ID_TO_ALPHABET,
-            lambda: ID_TO_ALPHABET,
-            lambda: read_alphabet(self.__parent),
+            lambda id: ID_TO_ALPHABET[id],
+            lambda id: ID_TO_VOWELS_LETTERS[id],
+            lambda id: ID_TO_CONSONANT_LETTERS[id],
+            lambda id: read_alphabet(self.__parent, 'Введіть літери через пробіл або кому:'),
+            lambda id: ID_TO_ALPHABET[id],
+            lambda id: ID_TO_ALPHABET[id],
+            lambda id: read_alphabet(self.__parent, 'Введіть буквосполучення через пробіл або кому:'),
         ]
         self.__id_to_two_dimensin_converter = [
             [
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
-                None,
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
                 None,
                 None,
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
@@ -77,7 +99,7 @@ class ConvertersManager:
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
-                None,
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
                 None,
                 None,
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
@@ -86,28 +108,19 @@ class ConvertersManager:
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
-                None,
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
                 None,
                 None,
                 lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
             ],
             [
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
                 None,
                 None,
-                None,
-                None,
-                None,
-                None,
-                None,
-            ],
-            [
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
-                None,
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
             ],
             [
                 None,
@@ -118,6 +131,25 @@ class ConvertersManager:
                 None,
                 None,
             ],
+            [
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+                None,
+            ],
+            [
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+                None,
+                None,
+                lambda alphabet1, alphabet2: TwoDimensionsConverter(alphabet1, alphabet2),
+            ],
+            
         ]
 
     @property
@@ -140,15 +172,15 @@ class AppController:
 
     def __get_converter(self, alphabet_id, converter_id1, converter_id2):
         if converter_id2 == 0:
-            alphabet = self.__converters_manager.alphabets[converter_id1]()[alphabet_id]
+            alphabet = self.__converters_manager.alphabets[converter_id1](alphabet_id)
             return self.__converters_manager.one_demension_converters[converter_id1](alphabet)
         else:
             converter_id2 -= 1
-            alphabet1 = self.__converters_manager.alphabets[converter_id1]()[alphabet_id]
-            alphabet2 = self.__converters_manager.alphabets[converter_id2]()[alphabet_id]
+            alphabet1 = self.__converters_manager.alphabets[converter_id1](alphabet_id)
+            alphabet2 = self.__converters_manager.alphabets[converter_id2](alphabet_id)
             return self.__converters_manager.two_demension_converters[converter_id1][converter_id2](alphabet1, alphabet2)
 
-    def __call__(self, alphabet_id, converter_id1, converter_id2, method_id) -> None:
+    def calc(self, alphabet_id, converter_id1, converter_id2, method_id):
         if converter_id2 == 0:
             converter = self.__get_converter(alphabet_id, converter_id1, converter_id2)
             data = converter(self.__reader())
@@ -162,9 +194,34 @@ class AppController:
         else:
             converter = self.__get_converter(alphabet_id, converter_id1, converter_id2)
             data = converter(self.__reader())
+            result = self.__computing_manager.two_dimension_methods[method_id](data)
             if method_id == 0:
-                return converter.decrypt_default(data)
-            result = TwoDimensionsComputing(self.__computing_manager.methods[method_id])(data)
+                return converter.decrypt_default(result)
+            if method_id == 9:
+                return (self.__computing_manager.two_dimension_methods[method_id].name, result)
             if isinstance(result[0], tuple) or isinstance(result[0], list):
                 return converter.decrypt(result)
             return ((self.__computing_manager.methods[method_id].name + ' (x)', result[0]), (self.__computing_manager.methods[method_id].name + ' (y)', result[1]))
+
+    def __call__(self, alphabet_id, converter_id1, converter_id2, method_id):
+        result = self.calc(alphabet_id, converter_id1, converter_id2, method_id)
+        return result
+
+    @property
+    def methods_for_calc_all(self) -> list:
+        return [4, 5, 6, 7, 8, 10, 11]
+
+    @property
+    def methods_for_calc_all_2d(self) -> list:
+        return [4, 5, 6, 7, 8, 9, 10, 11]
+
+    def calc_all(self, alphabet_id, converter_id1, converter_id2):
+        if converter_id2 == 0:
+            methods = self.methods_for_calc_all
+        else:
+            methods = self.methods_for_calc_all_2d
+        results = []
+        for method_id in methods:
+            results.append(self.calc(alphabet_id, converter_id1, converter_id2, method_id))
+        return results
+
