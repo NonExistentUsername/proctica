@@ -47,7 +47,8 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border:1px solid #007bd1;</string>
+     <string notr="true">border:1px solid #007bd1;
+color:black;</string>
     </property>
     <item>
      <property name="text">
@@ -125,7 +126,9 @@
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border:1px solid #007bd1;</string>
+     <string notr="true">border:1px solid #007bd1;
+color:black;
+</string>
     </property>
     <item>
      <property name="text">
@@ -182,6 +185,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">border:1px solid #007bd1;
+color:black;
 
 </string>
     </property>
@@ -338,7 +342,9 @@ background:#007bd1;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">border:1px solid #007bd1;</string>
+     <string notr="true">border:1px solid #007bd1;
+color:black;
+</string>
     </property>
     <item>
      <property name="text">

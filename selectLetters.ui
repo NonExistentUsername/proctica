@@ -95,7 +95,8 @@
     </font>
    </property>
    <property name="styleSheet">
-    <string notr="true">border:1px solid #007bd1;</string>
+    <string notr="true">border:1px solid #007bd1;
+color:black;</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">

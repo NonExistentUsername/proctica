@@ -41,6 +41,7 @@ class Ui_Form(object):
         font.setPointSize(15)
         self.input_one.setFont(font)
         self.input_one.setStyleSheet("border:1px solid #007bd1;\n"
+"color:black;\n"
 "")
         self.input_one.setObjectName("input_one")
         self.gridLayout.addWidget(self.input_one, 2, 0, 1, 1)
@@ -49,6 +50,7 @@ class Ui_Form(object):
         font.setPointSize(15)
         self.input_two.setFont(font)
         self.input_two.setStyleSheet("border:1px solid #007bd1;\n"
+"color:black;\n"
 "")
         self.input_two.setObjectName("input_two")
         self.gridLayout.addWidget(self.input_two, 3, 0, 1, 1)

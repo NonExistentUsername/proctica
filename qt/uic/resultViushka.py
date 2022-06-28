@@ -39,7 +39,8 @@ class Ui_Form(object):
         font.setPointSize(15)
         self.tableView.setFont(font)
         self.tableView.setToolTipDuration(1)
-        self.tableView.setStyleSheet("gridline-color: rgb(255, 255, 255);")
+        self.tableView.setStyleSheet("gridline-color: black;\n"
+"color:#007bc1;")
         self.tableView.setObjectName("tableView")
         self.verticalLayout.addWidget(self.tableView)
         self.horizontalLayout = QtWidgets.QHBoxLayout()

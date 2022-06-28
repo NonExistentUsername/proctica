@@ -25,6 +25,8 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.tableView.setFont(font)
+        self.tableView.setStyleSheet("gridline-color: black;\n"
+"color:#007bc1;")
         self.tableView.setObjectName("tableView")
         self.verticalLayout.addWidget(self.tableView)
         spacerItem = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)

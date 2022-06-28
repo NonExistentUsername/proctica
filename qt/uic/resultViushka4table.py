@@ -29,14 +29,16 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.tableView.setFont(font)
-        self.tableView.setStyleSheet("gridline-color: #007bd1;")
+        self.tableView.setStyleSheet("gridline-color: black;\n"
+"color:#007bc1;")
         self.tableView.setObjectName("tableView")
         self.verticalLayout.addWidget(self.tableView)
         self.tableView_2 = QtWidgets.QTableView(Form)
         font = QtGui.QFont()
         font.setPointSize(15)
         self.tableView_2.setFont(font)
-        self.tableView_2.setStyleSheet("gridline-color: #007bd1;")
+        self.tableView_2.setStyleSheet("gridline-color: black;\n"
+"color:#007bc1;")
         self.tableView_2.setObjectName("tableView_2")
         self.verticalLayout.addWidget(self.tableView_2)
         self.label_2 = QtWidgets.QLabel(Form)
@@ -52,7 +54,8 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.tableView_3.setFont(font)
-        self.tableView_3.setStyleSheet("gridline-color: #007bd1;")
+        self.tableView_3.setStyleSheet("gridline-color: black;\n"
+"color:#007bc1;")
         self.tableView_3.setObjectName("tableView_3")
         self.verticalLayout.addWidget(self.tableView_3)
         self.label_3 = QtWidgets.QLabel(Form)
@@ -68,7 +71,8 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.tableView_4.setFont(font)
-        self.tableView_4.setStyleSheet("gridline-color:#007bd1;")
+        self.tableView_4.setStyleSheet("gridline-color: black;\n"
+"color:#007bc1;")
         self.tableView_4.setObjectName("tableView_4")
         self.verticalLayout.addWidget(self.tableView_4)
         self.horizontalLayout = QtWidgets.QHBoxLayout()

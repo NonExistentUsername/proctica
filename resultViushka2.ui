@@ -72,8 +72,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color:white;
-border:1px solid #007bd1;
+      <string notr="true">border:1px solid #007bd1;
 </string>
      </property>
      <property name="text">

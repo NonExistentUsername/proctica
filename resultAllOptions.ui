@@ -32,6 +32,10 @@
          <pointsize>15</pointsize>
         </font>
        </property>
+       <property name="styleSheet">
+        <string notr="true">gridline-color: black;
+color:#007bc1;</string>
+       </property>
       </widget>
      </item>
      <item>

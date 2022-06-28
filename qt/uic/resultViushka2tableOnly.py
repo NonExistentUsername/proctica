@@ -39,7 +39,8 @@ class Ui_Form(object):
         font.setPointSize(15)
         self.tableView.setFont(font)
         self.tableView.setToolTipDuration(1)
-        self.tableView.setStyleSheet("gridline-color: rgb(255, 255, 255);")
+        self.tableView.setStyleSheet("gridline-color: black;\n"
+"color:#007bc1;")
         self.tableView.setObjectName("tableView")
         self.verticalLayout.addWidget(self.tableView)
         self.label_2 = QtWidgets.QLabel(Form)
@@ -52,6 +53,8 @@ class Ui_Form(object):
         self.tableView_2 = QtWidgets.QTableView(Form)
         self.tableView_2.setMinimumSize(QtCore.QSize(0, 61))
         self.tableView_2.setMaximumSize(QtCore.QSize(16777215, 61))
+        self.tableView_2.setStyleSheet("gridline-color: black;\n"
+"color:#007bc1;")
         self.tableView_2.setObjectName("tableView_2")
         self.verticalLayout.addWidget(self.tableView_2)
         self.horizontalLayout = QtWidgets.QHBoxLayout()

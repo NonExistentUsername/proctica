@@ -57,7 +57,8 @@
       <number>1</number>
      </property>
      <property name="styleSheet">
-      <string notr="true">gridline-color: rgb(255, 255, 255);</string>
+      <string notr="true">gridline-color: black;
+color:#007bc1;</string>
      </property>
     </widget>
    </item>

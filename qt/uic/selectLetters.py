@@ -39,7 +39,8 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.lineEdit.setFont(font)
-        self.lineEdit.setStyleSheet("border:1px solid #007bd1;")
+        self.lineEdit.setStyleSheet("border:1px solid #007bd1;\n"
+"color:black;")
         self.lineEdit.setObjectName("lineEdit")
         self.label_3 = QtWidgets.QLabel(Form)
         self.label_3.setGeometry(QtCore.QRect(60, 30, 141, 111))

@@ -30,7 +30,8 @@ class Ui_Practica(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.operation_combo.setFont(font)
-        self.operation_combo.setStyleSheet("border:1px solid #007bd1;")
+        self.operation_combo.setStyleSheet("border:1px solid #007bd1;\n"
+"color:black;")
         self.operation_combo.setObjectName("operation_combo")
         self.operation_combo.addItem("")
         self.operation_combo.addItem("")
@@ -49,7 +50,9 @@ class Ui_Practica(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.first_item_combo.setFont(font)
-        self.first_item_combo.setStyleSheet("border:1px solid #007bd1;")
+        self.first_item_combo.setStyleSheet("border:1px solid #007bd1;\n"
+"color:black;\n"
+"")
         self.first_item_combo.setObjectName("first_item_combo")
         self.first_item_combo.addItem("")
         self.first_item_combo.addItem("")
@@ -65,6 +68,7 @@ class Ui_Practica(object):
         self.lang_combo.setFont(font)
         self.lang_combo.setAutoFillBackground(False)
         self.lang_combo.setStyleSheet("border:1px solid #007bd1;\n"
+"color:black;\n"
 "\n"
 "")
         self.lang_combo.setFrame(True)
@@ -116,7 +120,9 @@ class Ui_Practica(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.second_item_combo.setFont(font)
-        self.second_item_combo.setStyleSheet("border:1px solid #007bd1;")
+        self.second_item_combo.setStyleSheet("border:1px solid #007bd1;\n"
+"color:black;\n"
+"")
         self.second_item_combo.setObjectName("second_item_combo")
         self.second_item_combo.addItem("")
         self.second_item_combo.addItem("")

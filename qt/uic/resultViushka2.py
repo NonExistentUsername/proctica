@@ -40,8 +40,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.label_3.setFont(font)
-        self.label_3.setStyleSheet("color:white;\n"
-"border:1px solid #007bd1;\n"
+        self.label_3.setStyleSheet("border:1px solid #007bd1;\n"
 "")
         self.label_3.setObjectName("label_3")
         self.gridLayout.addWidget(self.label_3, 2, 0, 1, 1)
