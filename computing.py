@@ -57,14 +57,8 @@ class SelectiveAverage:
         return "Вибіркове середнє"
 
 class Dispersion:
-    def __init__(self, selective_average_calculator = None) -> None:
-        self.__selective_average_calculator = selective_average_calculator
-
     def __call__(self, data: list, n: int) -> float:
-        if self.__selective_average_calculator:
-            selective_average = self.__selective_average_calculator(data, n)
-        else:
-            selective_average = SelectiveAverage()(data, n)
+        selective_average = SelectiveAverage()(data, n)
         result = 0
         for k, v in data:
             result += ((k - selective_average)**2)*v
@@ -79,14 +73,8 @@ class Dispersion:
         return "Дисперсія"
 
 class SelectiveStandardDeviation:
-    def __init__(self, dispersion_calculator = None) -> None:
-        self.__dispersion_calculator = dispersion_calculator
-    
     def __call__(self, data: list, n: int) -> float:
-        if self.__dispersion_calculator:
-            dispersion = self.__dispersion_calculator(data, n)
-        else:
-            dispersion = Dispersion()(data, n)
+        dispersion = Dispersion()(data, n)
         return math.sqrt(dispersion)
 
     @property
@@ -106,6 +94,22 @@ class FashionOfSample:
     @property
     def name(self) -> str:
         return "Мода"
+
+class TwoDimensionsFashionOfSample:
+    def __call__(self, data: list, n: int) -> int:
+        result = None
+        mx = -1
+        for k, v in data:
+            for k2, v2 in data:
+                if v2 > mx:
+                    mx = v2
+                    result = (k, k2)
+        return [(result, mx)]
+
+    @property
+    def name(self) -> str:
+        return "Мода"
+
 class MedianOfSample:
     def __call__(self, data: list, n: int) -> float:
         l = n // 2
@@ -148,7 +152,7 @@ class CovariationCoefficient:
     def __call__(self, data: list, n: int) -> float:
         selective_average = SelectiveAverage()(data, n)
         selective_standard_deviation = SelectiveStandardDeviation()(data, n)
-        return selective_standard_deviation / selective_average
+        return selective_standard_deviation / selective_average * 100
 
     @property
     def name(self) -> str:
@@ -178,8 +182,28 @@ class TwoDimensionsComputing:
         result_data_1 = [(k, v) for k, v in data1.items()]
         result_data_2 = [(k, v) for k, v in data2.items()]
 
-        return [self.__method(result_data_1, n), self.__method(result_data_2, n)]
+        return [self.__method(result_data_2, n), self.__method(result_data_1, n)]
 
+class CorrelationCoefficient:
+    def __call__(self, data: list) -> float:
+        result = 0
+
+        selective_standard_deviation = TwoDimensionsComputing(SelectiveStandardDeviation())(data)
+        selective_average = TwoDimensionsComputing(SelectiveAverage())(data)
+
+        n = 0
+        for k, v in data:
+            for k2, v2 in v:
+                result += k * k2 * v2
+                n += v2
+        result /= n
+        result -= (selective_average[0] * selective_average[1])
+        result /= (selective_standard_deviation[0] * selective_standard_deviation[1])
+        return result
+    
+    @property
+    def name(self) -> str:
+        return "Коефіцієнт кореляції"
 
 class LazyComputation:
     def __init__(self, method):

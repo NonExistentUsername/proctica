@@ -100,6 +100,34 @@ class CountConverter(Converter):
             result.append((self.__id_to_alphabet[k], v))
         return result
 
+class CountConverterWithoutDecrypt(Converter):
+    def __init__(self, alphabet: list[str]) -> None:
+        super().__init__()
+        if len(alphabet) == 0:
+            raise ValueError()
+        
+        self.__alphabet = []
+        self.__alphabet_to_id = {}
+        self.__id_to_alphabet = {}
+        curid = 1
+        tmp = set()
+        for key in alphabet:
+            if not key in tmp:
+                self.__alphabet.append(key)
+                self.__alphabet_to_id[key] = curid
+                self.__id_to_alphabet[curid] = key
+                curid += 1
+                tmp.add(key)
+
+    def __call__(self, data: str) -> list:
+        data = data.lower()
+        result = []
+        for key in self.__alphabet:
+            result.append((self.__alphabet_to_id[key], data.count(key)))
+        return result
+
+    def decrypt(self, data: list) -> list:
+        return data
 
 class TwoDimensionsConverter(Converter):
     def __init__(self, alphabet1: list[str], alphabet2: list[str]) -> None:
@@ -144,6 +172,14 @@ class TwoDimensionsConverter(Converter):
                 temp.append((self.__alphabet_to_id2[self.__alphabet2[j]], data.count(self.__alphabet1[i] + self.__alphabet2[j])))
             result.append((self.__alphabet_to_id1[self.__alphabet1[i]], temp))
         return result
+    
+    @property
+    def id_to_alphabet1(self) -> dict:
+        return self.__id_to_alphabet1
+    
+    @property
+    def id_to_alphabet2(self) -> dict:
+        return self.__id_to_alphabet2
 
     def decrypt_default(self, data: list) -> list:
         result = []
@@ -153,7 +189,6 @@ class TwoDimensionsConverter(Converter):
                 tmp.append((self.__id_to_alphabet2[k2], v2))
             result.append((self.__id_to_alphabet1[k], tmp))
         return result
-
 
     def decrypt(self, data: list) -> list:
         data1, data2 = data
