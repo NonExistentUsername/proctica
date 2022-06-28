@@ -57,7 +57,7 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.label.setFont(font)
-        self.label.setStyleSheet("")
+        self.label.setStyleSheet("color:black;")
         self.label.setObjectName("label")
         self.gridLayout.addWidget(self.label, 2, 0, 1, 2)
         self.label_4 = QtWidgets.QLabel(Form)

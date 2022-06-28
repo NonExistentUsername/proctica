@@ -57,7 +57,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true"/>
+      <string notr="true">color:black;</string>
      </property>
      <property name="text">
       <string>Розрахунки:</string>
@@ -165,10 +165,10 @@ background:#007bd1;
    </property>
   </widget>
   <zorder>label_2</zorder>
-  <zorder>label_4</zorder>
   <zorder>label</zorder>
   <zorder>input_one</zorder>
   <zorder>input_two</zorder>
+  <zorder>label_4</zorder>
  </widget>
  <resources/>
  <connections/>

@@ -279,7 +279,7 @@ background:#007bd1;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">color:black;</string>
     </property>
     <property name="text">
      <string>Мова:</string>
@@ -300,7 +300,7 @@ background:#007bd1;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">color:black;</string>
     </property>
     <property name="text">
      <string>Перша ознака:</string>
@@ -321,7 +321,7 @@ background:#007bd1;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">color:black;</string>
     </property>
     <property name="text">
      <string>Операція:</string>
@@ -402,7 +402,7 @@ color:black;
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true"/>
+     <string notr="true">color:black;</string>
     </property>
     <property name="text">
      <string>Друга ознака:</string>
