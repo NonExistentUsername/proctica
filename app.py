@@ -49,7 +49,7 @@ ResultOneTableForm.setWindowTitle("УжНУ Практика, результат
 Result4TablesForm.setWindowTitle("УжНУ Практика, результат обчислювань")
 SimpleVariableResultForm.setWindowTitle("УжНУ Практика, результат обчислювань")
 
-appcontroller = AppController("sample.txt", Practica)
+appcontroller = None
 
 col_1 = QColor(255, 255, 255)
 col_2 = QColor(230, 230, 230)
@@ -246,6 +246,7 @@ def OneDimensionResultView(data: list):
     model2 = OneDimensionTableModelX(llist)
     Result2TablesUI.tableView.setModel(model)
     Result2TablesUI.tableView_2.setModel(model2)
+    Result2TablesUI.label_2.setText("10 найбільших значень")
     Result2TablesForm.show()
 
 def TwoDimensionResultView(data):
@@ -285,6 +286,7 @@ def TwoDimensionResultView(data):
     model2 = OneDimensionTableModelX(llist)
     Result2TablesUI.tableView.setModel(model)
     Result2TablesUI.tableView_2.setModel(model2)
+    Result2TablesUI.label_2.setText("Значення які ходять в проміжок [2/3 * R; R]")
     Result2TablesForm.show()
 
 def TwoTablesViews(data):
@@ -481,7 +483,7 @@ Result2TablesUI.pushButton.clicked.connect(lambda: backToMain(Result2TablesForm)
 TwoVariablesResultUI.pushButton.clicked.connect(lambda: backToMain(TwoVariablesResultForm))
 AllResultsUI.pushButton.clicked.connect(lambda: backToMain(AllResultsForm))
 AllResultsUI2cols.pushButton.clicked.connect(lambda: backToMain(AllResults2colsForm))
-Practica.setStyleSheet("* {background-color:white; color: black;}")
+Practica.setStyleSheet("* {background-color: white; color: black;}")
 
 sys.exit(app.exec_())
 
