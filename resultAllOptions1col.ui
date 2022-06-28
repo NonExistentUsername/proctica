@@ -16,8 +16,8 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
     <widget class="QLabel" name="label_2">
      <property name="minimumSize">
       <size>
@@ -51,8 +51,14 @@
      </property>
     </widget>
    </item>
-   <item row="1" column="0">
+   <item>
     <widget class="QLabel" name="label">
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>25</height>
+      </size>
+     </property>
      <property name="font">
       <font>
        <pointsize>15</pointsize>
@@ -66,7 +72,7 @@
      </property>
     </widget>
    </item>
-   <item row="2" column="0">
+   <item>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
       <widget class="QLabel" name="val1">
@@ -187,86 +193,44 @@
        </property>
       </widget>
      </item>
-    </layout>
-   </item>
-   <item row="3" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <spacer name="verticalSpacer">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>40</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="minimumSize">
-        <size>
-         <width>100</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>25</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>15</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">color:white;
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <item>
+        <widget class="QPushButton" name="pushButton">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>25</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <pointsize>15</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color:white;
 border:2px solid #007bd1;
 background:#007bd1;</string>
-       </property>
-       <property name="text">
-        <string>Готово</string>
-       </property>
-      </widget>
+         </property>
+         <property name="text">
+          <string>Готово</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>
   </layout>
-  <widget class="QLabel" name="label_4">
-   <property name="geometry">
-    <rect>
-     <x>160</x>
-     <y>20</y>
-     <width>141</width>
-     <height>111</height>
-    </rect>
-   </property>
-   <property name="maximumSize">
-    <size>
-     <width>141</width>
-     <height>111</height>
-    </size>
-   </property>
-   <property name="styleSheet">
-    <string notr="true">background-color: #007bd1;
-</string>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-   <property name="pixmap">
-    <pixmap>C:/Users/windows 10/.designer/backup/maths.png</pixmap>
-   </property>
-   <property name="scaledContents">
-    <bool>true</bool>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections/>
