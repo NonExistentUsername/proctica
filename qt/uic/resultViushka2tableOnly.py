@@ -82,5 +82,5 @@ class Ui_Form(object):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Form"))
         self.label.setText(_translate("Form", "Розрахунки:"))
-        self.label_2.setText(_translate("Form", "Топ 10 значень з найбільшою частотою"))
+        self.label_2.setText(_translate("Form", "10 найбільших значень"))
         self.pushButton.setText(_translate("Form", "На головну"))

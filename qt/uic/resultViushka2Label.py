@@ -24,7 +24,7 @@ class Ui_Form(object):
 "")
         self.label_2.setText("")
         self.label_2.setTextFormat(QtCore.Qt.RichText)
-        self.label_2.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\checklist.png"))
+        self.label_2.setPixmap(QtGui.QPixmap("checklist.png"))
         self.label_2.setScaledContents(False)
         self.label_2.setAlignment(QtCore.Qt.AlignCenter)
         self.label_2.setObjectName("label_2")
@@ -76,7 +76,7 @@ class Ui_Form(object):
         self.label_4.setStyleSheet("background-color: #007bd1;\n"
 "")
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\maths.png"))
+        self.label_4.setPixmap(QtGui.QPixmap("maths.png"))
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
         self.label_2.raise_()

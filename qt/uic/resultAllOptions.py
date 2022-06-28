@@ -64,7 +64,7 @@ class Ui_Form(object):
         self.label_4.setGeometry(QtCore.QRect(70, 20, 141, 111))
         self.label_4.setStyleSheet("background-color: #007bd1;")
         self.label_4.setText("")
-        self.label_4.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\maths.png"))
+        self.label_4.setPixmap(QtGui.QPixmap("maths.png"))
         self.label_4.setScaledContents(True)
         self.label_4.setObjectName("label_4")
         self.label_2.raise_()
