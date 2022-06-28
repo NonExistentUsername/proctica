@@ -15,7 +15,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(280, 379)
-        Form.setStyleSheet("")
+        Form.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.gridLayout = QtWidgets.QGridLayout(Form)
         self.gridLayout.setObjectName("gridLayout")
         self.verticalLayout = QtWidgets.QVBoxLayout()
@@ -60,6 +60,7 @@ class Ui_Form(object):
         self.gridLayout.addWidget(self.label, 2, 0, 1, 2)
         self.label_4 = QtWidgets.QLabel(Form)
         self.label_4.setGeometry(QtCore.QRect(70, 20, 141, 111))
+        self.label_4.setStyleSheet("background-color: #007bd1;")
         self.label_4.setText("")
         self.label_4.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\maths.png"))
         self.label_4.setScaledContents(True)

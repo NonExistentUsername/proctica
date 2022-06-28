@@ -24,7 +24,7 @@ class Ui_Form(object):
         font.setPointSize(15)
         Form.setFont(font)
         Form.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
-        Form.setStyleSheet("")
+        Form.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.label = QtWidgets.QLabel(Form)

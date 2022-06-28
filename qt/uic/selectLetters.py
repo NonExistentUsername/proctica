@@ -15,7 +15,7 @@ class Ui_Form(object):
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(263, 350)
-        Form.setStyleSheet("")
+        Form.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.label_2 = QtWidgets.QLabel(Form)
         self.label_2.setGeometry(QtCore.QRect(6, 6, 251, 150))
         self.label_2.setMinimumSize(QtCore.QSize(0, 150))
@@ -44,6 +44,7 @@ class Ui_Form(object):
         self.label_3 = QtWidgets.QLabel(Form)
         self.label_3.setGeometry(QtCore.QRect(60, 30, 141, 111))
         self.label_3.setMinimumSize(QtCore.QSize(141, 111))
+        self.label_3.setStyleSheet("background-color: #007bd1;")
         self.label_3.setText("")
         self.label_3.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\maths.png"))
         self.label_3.setScaledContents(True)

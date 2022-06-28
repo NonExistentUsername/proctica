@@ -20,7 +20,7 @@ class Ui_Practica(object):
         font.setPointSize(15)
         Practica.setFont(font)
         Practica.setAutoFillBackground(False)
-        Practica.setStyleSheet("")
+        Practica.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.centralwidget = QtWidgets.QWidget(Practica)
         self.centralwidget.setStyleSheet("selection-background-color: #007bd1;\n"
 "")

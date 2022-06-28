@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
@@ -112,6 +112,9 @@
      <width>141</width>
      <height>111</height>
     </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #007bd1;</string>
    </property>
    <property name="text">
     <string/>

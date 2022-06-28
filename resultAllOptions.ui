@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="3" column="0" colspan="2">
@@ -126,6 +126,9 @@ background:#007bd1;</string>
      <width>141</width>
      <height>111</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #007bd1;</string>
    </property>
    <property name="text">
     <string/>
