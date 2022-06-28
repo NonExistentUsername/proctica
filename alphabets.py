@@ -1,4 +1,4 @@
-# 11укр 11рос 1угорська 1словацька 1чеська -1нім 11рум 1пол
+# 11укр 11рос 1угорська 11словацька 11чеська 11нім 11рум 11пол
 ENGLISH_ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 DEUTSCH_ALPHABET = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'ä', 'ö', 'ü', 'ß']
 POLEN_ALPHABET = ['a','ą','b','c','ć','d','e','ę','f','g','h','i','j','k','l','ł','m','n','ń','o','ó','p','q','r','s','ś','t','u','v','w','x','y','z','ź','ż'] 
@@ -24,6 +24,12 @@ RUM_HOLOSNI = ['a', 'ă', 'â','e', 'i', 'o', 'u', 'î']
 POLEN_PRIHOLOSNI = ['b', 'c', 'ć', 'ch', 'd', 'f', 'g', 'j', 'k', 'l', 'ł', 'm', 'n', 'ń', 'p', 'r', 's', 'ś', 'sz', 't', 'w', 'z', 'cz', 'dz', 'ź', 'dź', 'ż', 'dż']
 POLEN_HOLOSNI = ['a', 'ą', 'e', 'ę', 'i', 'o', 'ó', 'u', 'y']
 
+DEUTSCH_HOLOSNI=['a', 'e', 'u', 'i', 'o']
+DEUTSCH_PRIHOLOSNI=['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'w', 'x', 'y', 'z']
+SLOVAKIAN_HOLOSNI=['a','á','ä','e','é','i','í','o','ó','ô','u','ú','ý','p']
+SLOVAKIAN_PRIHOLOSNI=['b','c','č','d','ď','dz','dž','f','g','h','ch','j','k','l','ĺ','ľ','m','n','ň','q','r','ŕ','s','š','t','ť','v','w','x','y','z','ž']
+HUNGARIAN_PRIHOLOSNI=['b','d','dz','dzs','g','gy','j','l','ly','m','n','ny','r','v','z','zs','c','cs','f','h','k','p','s','sz','t','ty','l','sz']
+HUNGARIAN_HOLOSNI=['a','á','o','ó','u','ú','e','é','i','í','ö','õ','ü','ű']
 ID_TO_ALPHABET = [
     UKRAIN_ALPHABET,
     ENGLISH_ALPHABET,
@@ -40,10 +46,10 @@ ID_TO_CONSONANT_LETTERS = [
     UKR_PRIHOLOSNI,
     ENG_PRIHOLOSNI,
     RUS_PRIHOLOSNI,
-    None,
-    None,
+    DEUTSCH_PRIHOLOSNI,
+    SLOVAKIAN_PRIHOLOSNI,
     CZECH_PRIHOLOSNI,
-    None,
+    HUNGARIAN_PRIHOLOSNI,
     RUM_PRIHOLOSNI,
     POLEN_PRIHOLOSNI,
 ]
@@ -52,10 +58,10 @@ ID_TO_VOWELS_LETTERS = [
     UKR_HOLOSNI,
     ENG_HOLOSNI,
     RUS_HOLOSNI,
-    None,
-    None,
+    DEUTSCH_HOLOSNI,
+    SLOVAKIAN_HOLOSNI,
     CZECH_HOLOSNI,
-    None,
+    HUNGARIAN_HOLOSNI,
     RUM_HOLOSNI,
     POLEN_HOLOSNI,
 ]
