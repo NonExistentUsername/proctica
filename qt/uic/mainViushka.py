@@ -15,25 +15,22 @@ class Ui_Practica(object):
     def setupUi(self, Practica):
         Practica.setObjectName("Practica")
         Practica.setEnabled(True)
-        Practica.resize(411, 512)
+        Practica.resize(405, 512)
         font = QtGui.QFont()
         font.setPointSize(15)
         Practica.setFont(font)
         Practica.setAutoFillBackground(False)
-        Practica.setStyleSheet("background:#22222e;\n"
-"")
+        Practica.setStyleSheet("")
         self.centralwidget = QtWidgets.QWidget(Practica)
-        self.centralwidget.setStyleSheet("selection-background-color: #fb5b5d")
+        self.centralwidget.setStyleSheet("selection-background-color: #007bd1;\n"
+"")
         self.centralwidget.setObjectName("centralwidget")
         self.operation_combo = QtWidgets.QComboBox(self.centralwidget)
         self.operation_combo.setGeometry(QtCore.QRect(10, 360, 381, 31))
         font = QtGui.QFont()
-        font.setFamily("Times New Roman")
         font.setPointSize(15)
         self.operation_combo.setFont(font)
-        self.operation_combo.setStyleSheet("color: white;\n"
-"background:#22222e;\n"
-"border:1px solid white;")
+        self.operation_combo.setStyleSheet("border:1px solid #007bd1;")
         self.operation_combo.setObjectName("operation_combo")
         self.operation_combo.addItem("")
         self.operation_combo.addItem("")
@@ -50,12 +47,9 @@ class Ui_Practica(object):
         self.first_item_combo = QtWidgets.QComboBox(self.centralwidget)
         self.first_item_combo.setGeometry(QtCore.QRect(10, 280, 181, 31))
         font = QtGui.QFont()
-        font.setFamily("Times New Roman")
         font.setPointSize(15)
         self.first_item_combo.setFont(font)
-        self.first_item_combo.setStyleSheet("color: white;\n"
-"background:#22222e;\n"
-"border:1px solid white;")
+        self.first_item_combo.setStyleSheet("border:1px solid #007bd1;")
         self.first_item_combo.setObjectName("first_item_combo")
         self.first_item_combo.addItem("")
         self.first_item_combo.addItem("")
@@ -67,13 +61,12 @@ class Ui_Practica(object):
         self.lang_combo = QtWidgets.QComboBox(self.centralwidget)
         self.lang_combo.setGeometry(QtCore.QRect(10, 204, 381, 31))
         font = QtGui.QFont()
-        font.setFamily("Times New Roman")
         font.setPointSize(15)
         self.lang_combo.setFont(font)
         self.lang_combo.setAutoFillBackground(False)
-        self.lang_combo.setStyleSheet("color: #fff;\n"
-"background:#22222e;\n"
-"border:1px solid white;")
+        self.lang_combo.setStyleSheet("border:1px solid #007bd1;\n"
+"\n"
+"")
         self.lang_combo.setFrame(True)
         self.lang_combo.setObjectName("lang_combo")
         self.lang_combo.addItem("")
@@ -88,52 +81,42 @@ class Ui_Practica(object):
         self.calculate = QtWidgets.QPushButton(self.centralwidget)
         self.calculate.setGeometry(QtCore.QRect(210, 440, 181, 41))
         font = QtGui.QFont()
-        font.setFamily("Times New Roman")
         font.setPointSize(20)
         font.setBold(True)
         font.setWeight(75)
         self.calculate.setFont(font)
-        self.calculate.setStyleSheet("color: white;\n"
-"background:#22222e;\n"
-"border:1px solid white;\n"
-"border-radius:30;")
+        self.calculate.setStyleSheet("color:white;\n"
+"border:2px solid #007bd1;\n"
+"background:#007bd1;\n"
+"")
         self.calculate.setObjectName("calculate")
         self.label = QtWidgets.QLabel(self.centralwidget)
         self.label.setGeometry(QtCore.QRect(10, 180, 81, 20))
         font = QtGui.QFont()
-        font.setFamily("Times New Roman")
         font.setPointSize(15)
         self.label.setFont(font)
-        self.label.setStyleSheet("color: white;\n"
-"")
+        self.label.setStyleSheet("")
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(self.centralwidget)
-        self.label_2.setGeometry(QtCore.QRect(10, 261, 81, 16))
+        self.label_2.setGeometry(QtCore.QRect(10, 261, 121, 16))
         font = QtGui.QFont()
-        font.setFamily("Times New Roman")
         font.setPointSize(15)
         self.label_2.setFont(font)
-        self.label_2.setStyleSheet("color: white;\n"
-"")
+        self.label_2.setStyleSheet("")
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(self.centralwidget)
         self.label_3.setGeometry(QtCore.QRect(10, 340, 81, 16))
         font = QtGui.QFont()
-        font.setFamily("Times New Roman")
         font.setPointSize(15)
         self.label_3.setFont(font)
-        self.label_3.setStyleSheet("color: white;\n"
-"")
+        self.label_3.setStyleSheet("")
         self.label_3.setObjectName("label_3")
         self.second_item_combo = QtWidgets.QComboBox(self.centralwidget)
-        self.second_item_combo.setGeometry(QtCore.QRect(210, 281, 171, 31))
+        self.second_item_combo.setGeometry(QtCore.QRect(210, 281, 181, 31))
         font = QtGui.QFont()
-        font.setFamily("Times New Roman")
         font.setPointSize(15)
         self.second_item_combo.setFont(font)
-        self.second_item_combo.setStyleSheet("color: white;\n"
-"background:#22222e;\n"
-"border:1px solid white;")
+        self.second_item_combo.setStyleSheet("border:1px solid #007bd1;")
         self.second_item_combo.setObjectName("second_item_combo")
         self.second_item_combo.addItem("")
         self.second_item_combo.addItem("")
@@ -144,51 +127,46 @@ class Ui_Practica(object):
         self.second_item_combo.addItem("")
         self.second_item_combo.addItem("")
         self.label_4 = QtWidgets.QLabel(self.centralwidget)
-        self.label_4.setGeometry(QtCore.QRect(210, 261, 81, 16))
+        self.label_4.setGeometry(QtCore.QRect(210, 261, 111, 16))
         font = QtGui.QFont()
-        font.setFamily("Times New Roman")
         font.setPointSize(15)
         self.label_4.setFont(font)
-        self.label_4.setStyleSheet("color: white;\n"
-"")
+        self.label_4.setStyleSheet("")
         self.label_4.setObjectName("label_4")
         self.frame = QtWidgets.QFrame(self.centralwidget)
-        self.frame.setGeometry(QtCore.QRect(0, 0, 411, 151))
+        self.frame.setGeometry(QtCore.QRect(0, 0, 411, 161))
         self.frame.setAutoFillBackground(False)
-        self.frame.setStyleSheet("background-color: #fb5b5d")
+        self.frame.setStyleSheet("background-color: #007bd1\n"
+"")
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
         self.label_6 = QtWidgets.QLabel(self.frame)
-        self.label_6.setGeometry(QtCore.QRect(180, 50, 71, 61))
+        self.label_6.setGeometry(QtCore.QRect(140, 20, 121, 121))
         self.label_6.setText("")
-        self.label_6.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\diploma.png"))
+        self.label_6.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\../../../Загрузки/premium-icon-business-impact-4365114.png"))
+        self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
         self.calculate_2 = QtWidgets.QPushButton(self.centralwidget)
         self.calculate_2.setGeometry(QtCore.QRect(10, 440, 181, 41))
         font = QtGui.QFont()
-        font.setFamily("Times New Roman")
-        font.setPointSize(17)
+        font.setPointSize(15)
         font.setBold(True)
         font.setWeight(75)
         self.calculate_2.setFont(font)
-        self.calculate_2.setStyleSheet("color: white;\n"
-"background:#22222e;\n"
-"border:1px solid white;\n"
-"border-radius:30;")
+        self.calculate_2.setStyleSheet("color:white;\n"
+"border:2px solid #007bd1;\n"
+"background:#007bd1;\n"
+"")
         self.calculate_2.setObjectName("calculate_2")
         Practica.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(Practica)
-        self.menubar.setGeometry(QtCore.QRect(0, 0, 411, 21))
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 405, 21))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.menubar.setFont(font)
         self.menubar.setMouseTracking(True)
-        self.menubar.setStyleSheet("color:white;\n"
-"selection-background-color: #fb5b5d;\n"
-"menubar::selected{\n"
-"    selection-background-color: #fb5b5d;\n"
-"}")
+        self.menubar.setStyleSheet("")
         self.menubar.setObjectName("menubar")
         self.menu = QtWidgets.QMenu(self.menubar)
         self.menu.setEnabled(True)
@@ -245,7 +223,7 @@ class Ui_Practica(object):
         self.calculate.setText(_translate("Practica", "РОЗРАХУВАТИ"))
         self.label.setText(_translate("Practica", "Мова:"))
         self.label_2.setText(_translate("Practica", "Перша ознака:"))
-        self.label_3.setText(_translate("Practica", "Операція"))
+        self.label_3.setText(_translate("Practica", "Операція:"))
         self.second_item_combo.setItemText(0, _translate("Practica", "Нічого"))
         self.second_item_combo.setItemText(1, _translate("Practica", "За алфавітом"))
         self.second_item_combo.setItemText(2, _translate("Practica", "За голосними"))

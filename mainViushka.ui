@@ -9,7 +9,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>411</width>
+    <width>405</width>
     <height>512</height>
    </rect>
   </property>
@@ -25,12 +25,12 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background:#22222e;
-</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="styleSheet">
-    <string notr="true">selection-background-color: #fb5b5d</string>
+    <string notr="true">selection-background-color: #007bd1;
+</string>
    </property>
    <widget class="QComboBox" name="operation_combo">
     <property name="geometry">
@@ -43,14 +43,11 @@
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
       <pointsize>15</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-background:#22222e;
-border:1px solid white;</string>
+     <string notr="true">border:1px solid #007bd1;</string>
     </property>
     <item>
      <property name="text">
@@ -124,14 +121,11 @@ border:1px solid white;</string>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
       <pointsize>15</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-background:#22222e;
-border:1px solid white;</string>
+     <string notr="true">border:1px solid #007bd1;</string>
     </property>
     <item>
      <property name="text">
@@ -180,7 +174,6 @@ border:1px solid white;</string>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
       <pointsize>15</pointsize>
      </font>
     </property>
@@ -188,9 +181,9 @@ border:1px solid white;</string>
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: #fff;
-background:#22222e;
-border:1px solid white;</string>
+     <string notr="true">border:1px solid #007bd1;
+
+</string>
     </property>
     <property name="frame">
      <bool>true</bool>
@@ -252,17 +245,16 @@ border:1px solid white;</string>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
       <pointsize>20</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-background:#22222e;
-border:1px solid white;
-border-radius:30;</string>
+     <string notr="true">color:white;
+border:2px solid #007bd1;
+background:#007bd1;
+</string>
     </property>
     <property name="text">
      <string>РОЗРАХУВАТИ</string>
@@ -279,13 +271,11 @@ border-radius:30;</string>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
       <pointsize>15</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Мова:</string>
@@ -296,19 +286,17 @@ border-radius:30;</string>
      <rect>
       <x>10</x>
       <y>261</y>
-      <width>81</width>
+      <width>121</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
       <pointsize>15</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Перша ознака:</string>
@@ -325,16 +313,14 @@ border-radius:30;</string>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
       <pointsize>15</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-</string>
+     <string notr="true"/>
     </property>
     <property name="text">
-     <string>Операція</string>
+     <string>Операція:</string>
     </property>
    </widget>
    <widget class="QComboBox" name="second_item_combo">
@@ -342,20 +328,17 @@ border-radius:30;</string>
      <rect>
       <x>210</x>
       <y>281</y>
-      <width>171</width>
+      <width>181</width>
       <height>31</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
       <pointsize>15</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-background:#22222e;
-border:1px solid white;</string>
+     <string notr="true">border:1px solid #007bd1;</string>
     </property>
     <item>
      <property name="text">
@@ -403,19 +386,17 @@ border:1px solid white;</string>
      <rect>
       <x>210</x>
       <y>261</y>
-      <width>81</width>
+      <width>111</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
       <pointsize>15</pointsize>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-</string>
+     <string notr="true"/>
     </property>
     <property name="text">
      <string>Друга ознака:</string>
@@ -427,14 +408,15 @@ border:1px solid white;</string>
       <x>0</x>
       <y>0</y>
       <width>411</width>
-      <height>151</height>
+      <height>161</height>
      </rect>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-color: #fb5b5d</string>
+     <string notr="true">background-color: #007bd1
+</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::StyledPanel</enum>
@@ -445,17 +427,20 @@ border:1px solid white;</string>
     <widget class="QLabel" name="label_6">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>50</y>
-       <width>71</width>
-       <height>61</height>
+       <x>140</x>
+       <y>20</y>
+       <width>121</width>
+       <height>121</height>
       </rect>
      </property>
      <property name="text">
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>diploma.png</pixmap>
+      <pixmap>../../../Загрузки/premium-icon-business-impact-4365114.png</pixmap>
+     </property>
+     <property name="scaledContents">
+      <bool>true</bool>
      </property>
     </widget>
    </widget>
@@ -470,17 +455,16 @@ border:1px solid white;</string>
     </property>
     <property name="font">
      <font>
-      <family>Times New Roman</family>
-      <pointsize>17</pointsize>
+      <pointsize>15</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">color: white;
-background:#22222e;
-border:1px solid white;
-border-radius:30;</string>
+     <string notr="true">color:white;
+border:2px solid #007bd1;
+background:#007bd1;
+</string>
     </property>
     <property name="text">
      <string>Розрахувати всі х-ки</string>
@@ -492,7 +476,7 @@ border-radius:30;</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>411</width>
+     <width>405</width>
      <height>21</height>
     </rect>
    </property>
@@ -505,11 +489,7 @@ border-radius:30;</string>
     <bool>true</bool>
    </property>
    <property name="styleSheet">
-    <string notr="true">color:white;
-selection-background-color: #fb5b5d;
-menubar::selected{
-	selection-background-color: #fb5b5d;
-}</string>
+    <string notr="true"/>
    </property>
    <widget class="QMenu" name="menu">
     <property name="enabled">

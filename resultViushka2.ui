@@ -14,14 +14,20 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background:#22222e;
-</string>
+   <string notr="true"/>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout_2">
-   <item>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0">
     <widget class="QLabel" name="label_2">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>140</height>
+      </size>
+     </property>
      <property name="styleSheet">
-      <string notr="true">background-color: rgb(251, 91, 93);</string>
+      <string notr="true">background-color:#007bd1;
+</string>
      </property>
      <property name="text">
       <string/>
@@ -43,7 +49,7 @@
      </property>
     </widget>
    </item>
-   <item>
+   <item row="1" column="0">
     <widget class="QLabel" name="label">
      <property name="font">
       <font>
@@ -51,14 +57,14 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color:white;</string>
+      <string notr="true"/>
      </property>
      <property name="text">
       <string>Розрахунки:</string>
      </property>
     </widget>
    </item>
-   <item>
+   <item row="2" column="0">
     <widget class="QLabel" name="label_3">
      <property name="font">
       <font>
@@ -66,14 +72,16 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color:white</string>
+      <string notr="true">color:white;
+border:1px solid #007bd1;
+</string>
      </property>
      <property name="text">
       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
     </widget>
    </item>
-   <item>
+   <item row="3" column="0">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <spacer name="verticalSpacer">
@@ -104,10 +112,8 @@
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: white;
-background:#22222e;
-border:1px solid white;
-border-radius:30;</string>
+        <string notr="true">color:white;
+background:#007bd1;</string>
        </property>
        <property name="text">
         <string>На головну</string>
@@ -117,6 +123,29 @@ border-radius:30;</string>
     </layout>
    </item>
   </layout>
+  <widget class="QLabel" name="label_4">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>20</y>
+     <width>141</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>maths.png</pixmap>
+   </property>
+   <property name="scaledContents">
+    <bool>true</bool>
+   </property>
+  </widget>
+  <zorder>label_2</zorder>
+  <zorder>label</zorder>
+  <zorder>label_3</zorder>
+  <zorder>label_4</zorder>
  </widget>
  <resources/>
  <connections/>

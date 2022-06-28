@@ -24,15 +24,14 @@ class Ui_Form(object):
         font.setPointSize(15)
         Form.setFont(font)
         Form.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
-        Form.setStyleSheet("background:#22222e;\n"
-"")
+        Form.setStyleSheet("")
         self.verticalLayout = QtWidgets.QVBoxLayout(Form)
         self.verticalLayout.setObjectName("verticalLayout")
         self.label = QtWidgets.QLabel(Form)
         font = QtGui.QFont()
         font.setPointSize(15)
         self.label.setFont(font)
-        self.label.setStyleSheet("color:white;")
+        self.label.setStyleSheet("color:black;")
         self.label.setObjectName("label")
         self.verticalLayout.addWidget(self.label)
         self.tableView = QtWidgets.QTableView(Form)
@@ -47,10 +46,12 @@ class Ui_Form(object):
         font = QtGui.QFont()
         font.setPointSize(15)
         self.label_2.setFont(font)
-        self.label_2.setStyleSheet("color:white;")
+        self.label_2.setStyleSheet("color:black;")
         self.label_2.setObjectName("label_2")
         self.verticalLayout.addWidget(self.label_2)
         self.tableView_2 = QtWidgets.QTableView(Form)
+        self.tableView_2.setMinimumSize(QtCore.QSize(0, 61))
+        self.tableView_2.setMaximumSize(QtCore.QSize(16777215, 61))
         self.tableView_2.setObjectName("tableView_2")
         self.verticalLayout.addWidget(self.tableView_2)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
@@ -65,9 +66,8 @@ class Ui_Form(object):
         font.setWeight(50)
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet("color: white;\n"
-"background:#22222e;\n"
-"border:1px solid white;\n"
-"border-radius:30;")
+"background:#007bd1;\n"
+"")
         self.pushButton.setObjectName("pushButton")
         self.horizontalLayout.addWidget(self.pushButton)
         self.verticalLayout.addLayout(self.horizontalLayout)

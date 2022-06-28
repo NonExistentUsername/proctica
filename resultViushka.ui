@@ -28,8 +28,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background:#22222e;
-</string>
+   <string notr="true"/>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -40,7 +39,7 @@
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">color:white;</string>
+      <string notr="true">color:black;</string>
      </property>
      <property name="text">
       <string>Розрахунки:</string>
@@ -94,9 +93,8 @@
        </property>
        <property name="styleSheet">
         <string notr="true">color: white;
-background:#22222e;
-border:1px solid white;
-border-radius:30;</string>
+background:#007bd1;
+</string>
        </property>
        <property name="text">
         <string>На головну</string>
