@@ -16,6 +16,11 @@
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>15</pointsize>
+   </font>
+  </property>
   <property name="contextMenuPolicy">
    <enum>Qt::DefaultContextMenu</enum>
   </property>
@@ -46,12 +51,14 @@
     <widget class="QTableView" name="tableView">
      <property name="font">
       <font>
-       <pointsize>-1</pointsize>
+       <pointsize>15</pointsize>
       </font>
      </property>
+     <property name="toolTipDuration">
+      <number>1</number>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font-size:15px;
-gridline-color: rgb(255, 255, 255);</string>
+      <string notr="true">gridline-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
    </item>

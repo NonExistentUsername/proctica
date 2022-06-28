@@ -20,6 +20,9 @@ class Ui_Form(object):
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Form.sizePolicy().hasHeightForWidth())
         Form.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(15)
+        Form.setFont(font)
         Form.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
         Form.setStyleSheet("background:#22222e;\n"
 "")
@@ -34,10 +37,10 @@ class Ui_Form(object):
         self.verticalLayout.addWidget(self.label)
         self.tableView = QtWidgets.QTableView(Form)
         font = QtGui.QFont()
-        font.setPointSize(-1)
+        font.setPointSize(15)
         self.tableView.setFont(font)
-        self.tableView.setStyleSheet("font-size:15px;\n"
-"gridline-color: rgb(255, 255, 255);")
+        self.tableView.setToolTipDuration(1)
+        self.tableView.setStyleSheet("gridline-color: rgb(255, 255, 255);")
         self.tableView.setObjectName("tableView")
         self.verticalLayout.addWidget(self.tableView)
         self.horizontalLayout = QtWidgets.QHBoxLayout()

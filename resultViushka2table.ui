@@ -37,12 +37,11 @@
     <widget class="QTableView" name="tableView">
      <property name="font">
       <font>
-       <pointsize>-1</pointsize>
+       <pointsize>15</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">font-size:15px;
-gridline-color: rgb(255, 255, 255);</string>
+      <string notr="true">gridline-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
    </item>
@@ -50,12 +49,11 @@ gridline-color: rgb(255, 255, 255);</string>
     <widget class="QTableView" name="tableView_2">
      <property name="font">
       <font>
-       <pointsize>-1</pointsize>
+       <pointsize>15</pointsize>
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">font-size:15px;
-gridline-color: rgb(255, 255, 255);</string>
+      <string notr="true">gridline-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
    </item>
@@ -64,7 +62,7 @@ gridline-color: rgb(255, 255, 255);</string>
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>13</height>
+       <height>15</height>
       </size>
      </property>
      <property name="font">
@@ -82,9 +80,13 @@ gridline-color: rgb(255, 255, 255);</string>
    </item>
    <item>
     <widget class="QTableView" name="tableView_3">
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font-size:15px;
-gridline-color: rgb(255, 255, 255);</string>
+      <string notr="true">gridline-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
    </item>
@@ -93,7 +95,7 @@ gridline-color: rgb(255, 255, 255);</string>
      <property name="minimumSize">
       <size>
        <width>0</width>
-       <height>13</height>
+       <height>15</height>
       </size>
      </property>
      <property name="font">
@@ -111,9 +113,13 @@ gridline-color: rgb(255, 255, 255);</string>
    </item>
    <item>
     <widget class="QTableView" name="tableView_4">
+     <property name="font">
+      <font>
+       <pointsize>15</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
-      <string notr="true">font-size:15px;
-gridline-color: rgb(255, 255, 255);</string>
+      <string notr="true">gridline-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
    </item>
