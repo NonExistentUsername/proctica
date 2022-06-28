@@ -34,8 +34,10 @@ class Ui_Form(object):
         self.verticalLayout.addWidget(self.label)
         self.tableView = QtWidgets.QTableView(Form)
         font = QtGui.QFont()
-        font.setPointSize(14)
+        font.setPointSize(-1)
         self.tableView.setFont(font)
+        self.tableView.setStyleSheet("font-size:15px;\n"
+"gridline-color: rgb(255, 255, 255);")
         self.tableView.setObjectName("tableView")
         self.verticalLayout.addWidget(self.tableView)
         self.horizontalLayout = QtWidgets.QHBoxLayout()

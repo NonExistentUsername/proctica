@@ -37,8 +37,12 @@
     <widget class="QTableView" name="tableView">
      <property name="font">
       <font>
-       <pointsize>15</pointsize>
+       <pointsize>-1</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:15px;
+gridline-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
    </item>
@@ -46,8 +50,12 @@
     <widget class="QTableView" name="tableView_2">
      <property name="font">
       <font>
-       <pointsize>15</pointsize>
+       <pointsize>-1</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:15px;
+gridline-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
    </item>
@@ -73,7 +81,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QTableView" name="tableView_3"/>
+    <widget class="QTableView" name="tableView_3">
+     <property name="styleSheet">
+      <string notr="true">font-size:15px;
+gridline-color: rgb(255, 255, 255);</string>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_3">
@@ -97,7 +110,12 @@
     </widget>
    </item>
    <item>
-    <widget class="QTableView" name="tableView_4"/>
+    <widget class="QTableView" name="tableView_4">
+     <property name="styleSheet">
+      <string notr="true">font-size:15px;
+gridline-color: rgb(255, 255, 255);</string>
+     </property>
+    </widget>
    </item>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">

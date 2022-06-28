@@ -46,8 +46,12 @@
     <widget class="QTableView" name="tableView">
      <property name="font">
       <font>
-       <pointsize>14</pointsize>
+       <pointsize>-1</pointsize>
       </font>
+     </property>
+     <property name="styleSheet">
+      <string notr="true">font-size:15px;
+gridline-color: rgb(255, 255, 255);</string>
      </property>
     </widget>
    </item>

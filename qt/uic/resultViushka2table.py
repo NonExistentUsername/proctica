@@ -28,14 +28,18 @@ class Ui_Form(object):
         self.verticalLayout.addWidget(self.label)
         self.tableView = QtWidgets.QTableView(Form)
         font = QtGui.QFont()
-        font.setPointSize(15)
+        font.setPointSize(-1)
         self.tableView.setFont(font)
+        self.tableView.setStyleSheet("font-size:15px;\n"
+"gridline-color: rgb(255, 255, 255);")
         self.tableView.setObjectName("tableView")
         self.verticalLayout.addWidget(self.tableView)
         self.tableView_2 = QtWidgets.QTableView(Form)
         font = QtGui.QFont()
-        font.setPointSize(15)
+        font.setPointSize(-1)
         self.tableView_2.setFont(font)
+        self.tableView_2.setStyleSheet("font-size:15px;\n"
+"gridline-color: rgb(255, 255, 255);")
         self.tableView_2.setObjectName("tableView_2")
         self.verticalLayout.addWidget(self.tableView_2)
         self.label_2 = QtWidgets.QLabel(Form)
@@ -47,6 +51,8 @@ class Ui_Form(object):
         self.label_2.setObjectName("label_2")
         self.verticalLayout.addWidget(self.label_2)
         self.tableView_3 = QtWidgets.QTableView(Form)
+        self.tableView_3.setStyleSheet("font-size:15px;\n"
+"gridline-color: rgb(255, 255, 255);")
         self.tableView_3.setObjectName("tableView_3")
         self.verticalLayout.addWidget(self.tableView_3)
         self.label_3 = QtWidgets.QLabel(Form)
@@ -58,6 +64,8 @@ class Ui_Form(object):
         self.label_3.setObjectName("label_3")
         self.verticalLayout.addWidget(self.label_3)
         self.tableView_4 = QtWidgets.QTableView(Form)
+        self.tableView_4.setStyleSheet("font-size:15px;\n"
+"gridline-color: rgb(255, 255, 255);")
         self.tableView_4.setObjectName("tableView_4")
         self.verticalLayout.addWidget(self.tableView_4)
         self.horizontalLayout = QtWidgets.QHBoxLayout()
