@@ -10,20 +10,6 @@ class Converter:
     def __call__(self, data: str) -> list:
         pass
 
-class SimpleConverter(Converter):
-    def __init__(self) -> None:
-        super().__init__()
-    
-    def __call__(self, data: str) -> list:
-        return list(dict(Counter(data.split(' '))).items())
-
-class CharactersConverter(Converter):
-    def __init__(self) -> None:
-        super().__init__()
-    
-    def __call__(self, data: str) -> list:
-        return list(dict(Counter(split(data))).items())
-
 class AlphabetConverter(Converter):
     def __init__(self, alphabet: list[str]) -> None:
         super().__init__()
@@ -99,35 +85,6 @@ class CountConverter(Converter):
         for k, v in data:
             result.append((self.__id_to_alphabet[k], v))
         return result
-
-class CountConverterWithoutDecrypt(Converter):
-    def __init__(self, alphabet: list[str]) -> None:
-        super().__init__()
-        if len(alphabet) == 0:
-            raise ValueError()
-        
-        self.__alphabet = []
-        self.__alphabet_to_id = {}
-        self.__id_to_alphabet = {}
-        curid = 1
-        tmp = set()
-        for key in alphabet:
-            if not key in tmp:
-                self.__alphabet.append(key)
-                self.__alphabet_to_id[key] = curid
-                self.__id_to_alphabet[curid] = key
-                curid += 1
-                tmp.add(key)
-
-    def __call__(self, data: str) -> list:
-        data = data.lower()
-        result = []
-        for key in self.__alphabet:
-            result.append((self.__alphabet_to_id[key], data.count(key)))
-        return result
-
-    def decrypt(self, data: list) -> list:
-        return data
 
 class TwoDimensionsConverter(Converter):
     def __init__(self, alphabet1: list[str], alphabet2: list[str]) -> None:
@@ -231,14 +188,3 @@ class LengthOfSentencesConverter(Converter):
     
     def decrypt(self, data: list) -> list:
         return data
-class LazyConverter(Converter):
-    def __init__(self, converter) -> None:
-        super().__init__()
-        self.__converter = converter
-        self.__result = None
-    
-    def __call__(self, data: str) -> list:
-        if self.__result:
-            return self.__result
-        self.__result = self.__converter(data)
-        return self.__result
