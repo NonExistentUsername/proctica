@@ -48,6 +48,11 @@ Practica.setWindowTitle("УжНУ Практика")
 ResultOneTableForm.setWindowTitle("УжНУ Практика, результат обчислювань")
 Result4TablesForm.setWindowTitle("УжНУ Практика, результат обчислювань")
 SimpleVariableResultForm.setWindowTitle("УжНУ Практика, результат обчислювань")
+Result2TablesForm.setWindowTitle("УжНУ Практика, результат обчислювань")
+TwoVariablesResultForm.setWindowTitle("УжНУ Практика, результат обчислювань")
+AllResultsForm.setWindowTitle("УжНУ Практика, результат обчислювань")
+AllResults2colsForm.setWindowTitle("УжНУ Практика, результат обчислювань")
+
 
 appcontroller = None
 
