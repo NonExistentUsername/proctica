@@ -12,14 +12,15 @@ class StatisticalFrequencyDistribution(StatisticalDistribution):
 
     def __call__(self, data: list, n: int) -> list:
         return data
-
+# Це Знаходження відносної частоти
 class RelativeFrequencies(StatisticalDistribution):
     def __init__(self) -> None:
         super().__init__()
 
     def __call__(self, data: list, n: int) -> list:
         return [(k, v / n) for k, v in data]
-
+    
+# Це Знаходження нак. частоти
 class CumulativeFrequencies(StatisticalDistribution):
     def __init__(self) -> None:
         super().__init__()
@@ -31,7 +32,8 @@ class CumulativeFrequencies(StatisticalDistribution):
             result.append((k, i))
             i += v
         return result
-
+    
+# Це Знаходження відносної нак частоти
 class RelativeAccumulatedFrequencies(StatisticalDistribution):
     def __init__(self) -> None:
         super().__init__()
