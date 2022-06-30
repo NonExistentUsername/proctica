@@ -110,6 +110,11 @@ color:black;</string>
       <string>Коефіціент варіації</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>Вибіркове середнє в квадраті</string>
+     </property>
+    </item>
    </widget>
    <widget class="QComboBox" name="first_item_combo">
     <property name="geometry">
