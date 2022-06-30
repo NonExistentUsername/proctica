@@ -48,7 +48,6 @@ class RelativeAccumulatedFrequencies(StatisticalDistribution):
 
 class SelectiveAverage:
     def __call__(self, data: list, n: int) -> float:
-        data.sort(key = lambda a: a[0])
         result = 0
         for k, v in data:
             result += k * v
