@@ -45,6 +45,7 @@ class RelativeAccumulatedFrequencies(StatisticalDistribution):
             result.append((k, i / n))
             i += v
         return result
+
 #Вибіркове середнє
 class SelectiveAverage:
     def __call__(self, data: list, n: int) -> float:
@@ -56,7 +57,8 @@ class SelectiveAverage:
     @property
     def name(self) -> str:
         return "Вибіркове середнє"
-#Вибіркове середнє
+
+#Дисперсія
 class Dispersion:
     def __call__(self, data: list, n: int) -> float:
         selective_average = SelectiveAverage()(data, n)
