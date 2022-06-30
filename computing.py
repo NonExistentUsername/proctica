@@ -48,10 +48,13 @@ class RelativeAccumulatedFrequencies(StatisticalDistribution):
 
 #Вибіркове середнє
 class SelectiveAverage:
+    def __init__(self, step: int = 1) -> None:
+        self.__step = step
+
     def __call__(self, data: list, n: int) -> float:
         result = 0
         for k, v in data:
-            result += k * v
+            result += (k**self.__step) * v
         return result / n
     
     @property

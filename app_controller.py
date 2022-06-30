@@ -41,6 +41,7 @@ class ComputingManager:
             None,
             DimensionOfSample(),
             CovariationCoefficient(),
+            SelectiveAverage(step = 2),
         ]
         self.__id_to_two_dimension_method = [
             lambda data: StatisticalFrequencyDistribution()(data, 0),
@@ -55,6 +56,7 @@ class ComputingManager:
             CorrelationCoefficient(),
             TwoDimensionsComputing(DimensionOfSample()),
             TwoDimensionsComputing(CovariationCoefficient()),
+            TwoDimensionsComputing(SelectiveAverage(step = 2)),
         ]
     @property
     def methods(self) -> list:
@@ -209,11 +211,11 @@ class AppController:
 
     @property
     def methods_for_calc_all(self) -> list:
-        return [4, 5, 6, 7, 8, 10, 11]
+        return [4, 5, 6, 7, 8, 10, 11, 12]
 
     @property
     def methods_for_calc_all_2d(self) -> list:
-        return [4, 5, 6, 7, 8, 9, 10, 11]
+        return [4, 5, 6, 7, 8, 9, 10, 11, 12]
 
     def calc_all(self, alphabet_id, converter_id1, converter_id2):
         if converter_id2 == 0:

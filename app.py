@@ -316,14 +316,14 @@ def SimpleVariableResultView(str):
     SimpleVariableResultUI.label_3.setText(str)
     SimpleVariableResultForm.show()
 
-def result_to_str(result):
+def result_to_str(result, add = ""):
     num = result[1]
     if isinstance(num, float):
         num = "{:.3f}".format(num)
     else:
         num = str(num)
 
-    return str(result[0]) + ' = ' + num
+    return str(result[0]) + add + ' = ' + num
 
 def TwoVariableResultView(strs):
     str1, str2 = strs
@@ -337,9 +337,9 @@ def createModaStr(result, dimension=None):
 
     return 'Мода: "' + str(result[0]) + '", N(Mo) = ' + str(result[1])
 
-def result_to_str2(result):
+def result_to_str2(result, add = ""):
     print(result)
-    return [str(result[0][0]) + " = " + str(result[0][1]), str(result[1][0]) + " = " + str(result[1][1])]
+    return [str(result[0][0]) + add + " = " + str(result[0][1]), str(result[1][0]) + add + " = " + str(result[1][1])]
 
 def result_to_str2_plus(result):
     return [createModaStr(result[0][0], 'x'), createModaStr(result[1][0], 'y')]
@@ -357,6 +357,7 @@ operation_id_to_result_converter = [
     lambda result: result_to_str(result),
     lambda result: result_to_str(result),
     lambda result: result_to_str(result) + '%',
+    lambda result: result_to_str(result, " в 2-му степені"),
 ]
 
 operation_id_to_ui_opener = [
@@ -364,6 +365,7 @@ operation_id_to_ui_opener = [
     OneDimensionResultView,
     OneDimensionResultView,
     OneDimensionResultView,
+    SimpleVariableResultView,
     SimpleVariableResultView,
     SimpleVariableResultView,
     SimpleVariableResultView,
@@ -390,6 +392,7 @@ operation_id_to_2d_to_result_converter = [
     lambda result: result_to_str(result),
     lambda result: result_to_str2(result),
     lambda result: result_to_str2(result),
+    lambda result: result_to_str2(result, " у 2-му степені"),
 
 ]
 
@@ -404,6 +407,7 @@ operation_id_to_2d_ui_opener = [
     TwoVariableResultView,
     TwoVariableResultView,
     SimpleVariableResultView,
+    TwoVariableResultView,
     TwoVariableResultView,
     TwoVariableResultView,
 ]
@@ -449,7 +453,7 @@ def showAllResults():
                 for id in range(len(results)):
                     results_new.append(operation_id_to_result_converter[methods[id]](results[id]))
                 
-                cols = [AllResultsUI.val1, AllResultsUI.val2, AllResultsUI.val3, AllResultsUI.val4, AllResultsUI.val5, AllResultsUI.val6, AllResultsUI.val7]
+                cols = [AllResultsUI.val1, AllResultsUI.val2, AllResultsUI.val3, AllResultsUI.val4, AllResultsUI.val5, AllResultsUI.val6, AllResultsUI.val7, AllResultsUI.val8]
                 for id in range(len(cols)):
                     cols[id].setText(results_new[id])
                 
@@ -460,10 +464,10 @@ def showAllResults():
                 for id in range(len(results)):
                     results_new.append(operation_id_to_2d_to_result_converter[methods[id]](results[id]))
                 
-                cols1 = [AllResultsUI2cols.val1, AllResultsUI2cols.val2, AllResultsUI2cols.val3, AllResultsUI2cols.val4, AllResultsUI2cols.val5, AllResultsUI2cols.val6, AllResultsUI2cols.val7, AllResultsUI2cols.val8]
-                cols2 = [AllResultsUI2cols.val1_2, AllResultsUI2cols.val2_2, AllResultsUI2cols.val3_2, AllResultsUI2cols.val4_2, AllResultsUI2cols.val5_2, AllResultsUI2cols.val6_2, AllResultsUI2cols.val7_2, AllResultsUI2cols.val8_2]
+                cols1 = [AllResultsUI2cols.val1, AllResultsUI2cols.val2, AllResultsUI2cols.val3, AllResultsUI2cols.val4, AllResultsUI2cols.val5, AllResultsUI2cols.val6, AllResultsUI2cols.val7, AllResultsUI2cols.val8, AllResultsUI2cols.val9]
+                cols2 = [AllResultsUI2cols.val1_2, AllResultsUI2cols.val2_2, AllResultsUI2cols.val3_2, AllResultsUI2cols.val4_2, AllResultsUI2cols.val5_2, AllResultsUI2cols.val6_2, AllResultsUI2cols.val7_2, AllResultsUI2cols.val8_2, AllResultsUI2cols.val9_2]
                 
-                for id in range(8):
+                for id in range(9):
                     if id == 5:
                         cols1[id].setText(results_new[id])
                     else:
