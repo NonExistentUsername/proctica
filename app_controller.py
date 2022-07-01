@@ -182,9 +182,12 @@ class AppController:
             alphabet2 = self.__converters_manager.alphabets[converter_id2](alphabet_id)
             return self.__converters_manager.two_demension_converters[converter_id1][converter_id2](alphabet1, alphabet2)
 
-    def calc(self, alphabet_id, converter_id1, converter_id2, method_id):
+    def read_data(self, alphabet_id, converter_id1, converter_id2):
         converter = self.__get_converter(alphabet_id, converter_id1, converter_id2)
         data = converter(self.__reader())
+        return [converter, data]
+
+    def calc(self, alphabet_id, converter_id1, converter_id2, method_id, converter, data):
         if converter_id2 == 0:
             n = 0
             for k, v in data:
@@ -205,7 +208,8 @@ class AppController:
                     (self.__computing_manager.methods[method_id].name + ' (y)', result[1]))
 
     def __call__(self, alphabet_id, converter_id1, converter_id2, method_id):
-        result = self.calc(alphabet_id, converter_id1, converter_id2, method_id)
+        converter, data = self.read_data(alphabet_id, converter_id1, converter_id2)
+        result = self.calc(alphabet_id, converter_id1, converter_id2, method_id, converter, data)
         return result
 
     @property
@@ -217,12 +221,13 @@ class AppController:
         return [4, 5, 6, 7, 8, 9, 10, 11, 12]
 
     def calc_all(self, alphabet_id, converter_id1, converter_id2):
+        converter, data = self.read_data(alphabet_id, converter_id1, converter_id2)
         if converter_id2 == 0:
             methods = self.methods_for_calc_all
         else:
             methods = self.methods_for_calc_all_2d
         results = []
         for method_id in methods:
-            results.append(self.calc(alphabet_id, converter_id1, converter_id2, method_id))
+            results.append(self.calc(alphabet_id, converter_id1, converter_id2, method_id, converter, data))
         return results
 
