@@ -316,6 +316,12 @@ def SimpleVariableResultView(str):
     SimpleVariableResultUI.label_3.setText(str)
     SimpleVariableResultForm.show()
 
+def TwoVariableResultView(strs):
+    str1, str2 = strs
+    TwoVariablesResultUI.input_one.setText(str1)
+    TwoVariablesResultUI.input_two.setText(str2)
+    TwoVariablesResultForm.show()
+
 def result_to_str(result, add = ""):
     num = result[1]
     if isinstance(num, float):
@@ -324,12 +330,6 @@ def result_to_str(result, add = ""):
         num = str(num)
 
     return str(result[0]) + add + ' = ' + num
-
-def TwoVariableResultView(strs):
-    str1, str2 = strs
-    TwoVariablesResultUI.input_one.setText(str1)
-    TwoVariablesResultUI.input_two.setText(str2)
-    TwoVariablesResultForm.show()
 
 def createModaStr(result, dimension=None):
     if dimension:
@@ -419,7 +419,9 @@ def open_ui_opener_2d(id, result):
 def showResultWindow():
     if appcontroller:
         try:
-            result = appcontroller(ui.lang_combo.currentIndex(), ui.first_item_combo.currentIndex(), ui.second_item_combo.currentIndex(), ui.operation_combo.currentIndex())
+            result = appcontroller(
+                ui.lang_combo.currentIndex(), ui.first_item_combo.currentIndex(), 
+                ui.second_item_combo.currentIndex(), ui.operation_combo.currentIndex())
 
             if ui.second_item_combo.currentIndex() == 0:
                 open_ui_opener(ui.operation_combo.currentIndex(), result)
@@ -445,7 +447,8 @@ def chooseFile():
 def showAllResults():
     if appcontroller:
         try:
-            results = appcontroller.calc_all(ui.lang_combo.currentIndex(), ui.first_item_combo.currentIndex(), ui.second_item_combo.currentIndex())
+            results = appcontroller.calc_all(
+                ui.lang_combo.currentIndex(), ui.first_item_combo.currentIndex(), ui.second_item_combo.currentIndex())
 
             if ui.second_item_combo.currentIndex() == 0:
                 methods = appcontroller.methods_for_calc_all
@@ -453,7 +456,8 @@ def showAllResults():
                 for id in range(len(results)):
                     results_new.append(operation_id_to_result_converter[methods[id]](results[id]))
                 
-                cols = [AllResultsUI.val1, AllResultsUI.val2, AllResultsUI.val3, AllResultsUI.val4, AllResultsUI.val5, AllResultsUI.val6, AllResultsUI.val7, AllResultsUI.val8]
+                cols = [AllResultsUI.val1, AllResultsUI.val2, AllResultsUI.val3, AllResultsUI.val4, 
+                        AllResultsUI.val5, AllResultsUI.val6, AllResultsUI.val7, AllResultsUI.val8]
                 for id in range(len(cols)):
                     cols[id].setText(results_new[id])
                 
@@ -464,8 +468,14 @@ def showAllResults():
                 for id in range(len(results)):
                     results_new.append(operation_id_to_2d_to_result_converter[methods[id]](results[id]))
                 
-                cols1 = [AllResultsUI2cols.val1, AllResultsUI2cols.val2, AllResultsUI2cols.val3, AllResultsUI2cols.val4, AllResultsUI2cols.val5, AllResultsUI2cols.val6, AllResultsUI2cols.val7, AllResultsUI2cols.val8, AllResultsUI2cols.val9]
-                cols2 = [AllResultsUI2cols.val1_2, AllResultsUI2cols.val2_2, AllResultsUI2cols.val3_2, AllResultsUI2cols.val4_2, AllResultsUI2cols.val5_2, AllResultsUI2cols.val6_2, AllResultsUI2cols.val7_2, AllResultsUI2cols.val8_2, AllResultsUI2cols.val9_2]
+                cols1 = [
+                        AllResultsUI2cols.val1, AllResultsUI2cols.val2, AllResultsUI2cols.val3, 
+                        AllResultsUI2cols.val4, AllResultsUI2cols.val5, AllResultsUI2cols.val6, 
+                        AllResultsUI2cols.val7, AllResultsUI2cols.val8, AllResultsUI2cols.val9]
+                cols2 = [
+                    AllResultsUI2cols.val1_2, AllResultsUI2cols.val2_2, AllResultsUI2cols.val3_2, 
+                    AllResultsUI2cols.val4_2, AllResultsUI2cols.val5_2, AllResultsUI2cols.val6_2,
+                    AllResultsUI2cols.val7_2, AllResultsUI2cols.val8_2, AllResultsUI2cols.val9_2]
                 
                 for id in range(9):
                     if id == 5:

@@ -183,9 +183,9 @@ class AppController:
             return self.__converters_manager.two_demension_converters[converter_id1][converter_id2](alphabet1, alphabet2)
 
     def calc(self, alphabet_id, converter_id1, converter_id2, method_id):
+        converter = self.__get_converter(alphabet_id, converter_id1, converter_id2)
+        data = converter(self.__reader())
         if converter_id2 == 0:
-            converter = self.__get_converter(alphabet_id, converter_id1, converter_id2)
-            data = converter(self.__reader())
             n = 0
             for k, v in data:
                 n += v
@@ -194,8 +194,6 @@ class AppController:
                 return converter.decrypt(result)
             return (self.__computing_manager.methods[method_id].name, result)
         else:
-            converter = self.__get_converter(alphabet_id, converter_id1, converter_id2)
-            data = converter(self.__reader())
             result = self.__computing_manager.two_dimension_methods[method_id](data)
             if method_id == 0:
                 return converter.decrypt_default(result)
@@ -203,7 +201,8 @@ class AppController:
                 return (self.__computing_manager.two_dimension_methods[method_id].name, result)
             if isinstance(result[0], tuple) or isinstance(result[0], list):
                 return converter.decrypt(result)
-            return ((self.__computing_manager.methods[method_id].name + ' (x)', result[0]), (self.__computing_manager.methods[method_id].name + ' (y)', result[1]))
+            return ((self.__computing_manager.methods[method_id].name + ' (x)', result[0]), 
+                    (self.__computing_manager.methods[method_id].name + ' (y)', result[1]))
 
     def __call__(self, alphabet_id, converter_id1, converter_id2, method_id):
         result = self.calc(alphabet_id, converter_id1, converter_id2, method_id)
