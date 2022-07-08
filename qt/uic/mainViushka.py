@@ -151,7 +151,7 @@ class Ui_Practica(object):
         self.label_6 = QtWidgets.QLabel(self.frame)
         self.label_6.setGeometry(QtCore.QRect(140, 20, 121, 121))
         self.label_6.setText("")
-        self.label_6.setPixmap(QtGui.QPixmap("d:\\Універ\\Практика\\proctica\\../../../Загрузки/premium-icon-business-impact-4365114.png"))
+        self.label_6.setPixmap(QtGui.QPixmap("premium-icon-business-impact-4365114.png"))
         self.label_6.setScaledContents(True)
         self.label_6.setObjectName("label_6")
         self.calculate_2 = QtWidgets.QPushButton(self.centralwidget)
