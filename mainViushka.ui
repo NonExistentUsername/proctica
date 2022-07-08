@@ -112,7 +112,7 @@ color:black;</string>
     </item>
     <item>
      <property name="text">
-      <string>Вибіркове середнє в квадраті</string>
+      <string>Вибіркове середнє в 2й степені</string>
      </property>
     </item>
    </widget>
